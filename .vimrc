@@ -46,22 +46,22 @@ Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'tpope/vim-dispatch'
 Plug 'tommcdo/vim-exchange'
 Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'html', 'javascript'] }
-Plug 'rsmenon/vim-mathematica'
+Plug 'rsmenon/vim-mathematica', { 'for': 'mma' }
 Plug 'matze/vim-move'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'wavded/vim-stylus'
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'tpope/vim-surround'
-Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/xml.vim'
 Plug 'michaeljsmith/vim-indent-object'
