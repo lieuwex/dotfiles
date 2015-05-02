@@ -25,7 +25,6 @@ Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript'] }
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
