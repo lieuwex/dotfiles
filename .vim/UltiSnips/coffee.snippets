@@ -1,0 +1,33 @@
+snippet cl "New Coffeescript class with YUIDoc docuenntation" b
+###*
+# $1
+#
+# @class $2
+# @constructor
+# $3
+###
+class $2
+	constructor: ($4) ->
+		$0
+endsnippet
+
+snippet pr "New Coffeescript property with YUIDoc documentation" b
+###*
+# $1
+# @property $2
+# @type $3
+# @default $4
+###
+@$2 = $4
+endsnippet
+
+snippet fn "New Coffeescript function with YUIDoc documentation" b
+###*
+# $1
+# @method $2
+# @param $4
+# @param $3
+###
+$2 = () ->
+	$0
+endsnippet
