@@ -40,7 +40,7 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
-Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js' }
 Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
