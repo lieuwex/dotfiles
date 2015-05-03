@@ -102,6 +102,8 @@ function updateall
 
 	sudo softwareupdate -i -a
 
+	vim +"PlugUpgrade | PlugInstall | PlugUpdate | PlugClean | qa"
+
 	fish_update_completions
 end
 
