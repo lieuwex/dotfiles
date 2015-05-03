@@ -102,4 +102,9 @@ brew cask install warsow
 brew cleanup
 brew cask cleanup
 
+# Set fish as default shell
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+
+# TAKE OFFFF
 fish -c "updateall"
