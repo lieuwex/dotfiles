@@ -4,11 +4,7 @@ alias s 'git status -s'
 alias cd.. 'cd ..'
 alias diff 'git diff'
 set PATH /usr/local/bin /usr/local/sbin ~/bin $PATH
-alias vim '/Applications/MacVim.app/Contents/MacOS/Vim'
-set EDITOR "/Applications/MacVim.app/Contents/MacOS/Vim"
-
-# System Vim is normally loaded when using view, which is broken here...
-alias view '/Applications/MacVim.app/Contents/MacOS/Vim -R'
+set EDITOR /usr/local/bin/vim
 
 source ~/.config/fish/z-fish/z.fish
 
