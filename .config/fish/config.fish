@@ -93,8 +93,11 @@ function updateall
 
 	sudo npm-update-global
 
+	gem update --system
 	gem update
 	gem cleanup
+
+	sudo softwareupdate -i -a
 
 	fish_update_completions
 end
