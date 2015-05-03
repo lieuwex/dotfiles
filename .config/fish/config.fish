@@ -84,7 +84,8 @@ end
 
 function updateall
 	# Trigger sudo for later
-	sudo echo "😗 🎶"
+	sudo -v
+	echo "😗 🎶"
 
 	brew update
 	brew upgrade --all
