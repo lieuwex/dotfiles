@@ -5,7 +5,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 if test ! $(which brew); then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 brew update
@@ -15,6 +15,8 @@ brew tap homebrew/binary
 brew tap homebrew/dupes
 brew tap homebrew/python
 brew tap homebrew/science
+
+brew install caskroom/cask/brew-cask
 
 brew install aspell --with-lang-nl --with-lang-en --with-lang-de
 brew install asciidoc
