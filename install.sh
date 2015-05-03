@@ -29,12 +29,10 @@ brew install boost
 brew install brew-cask
 brew install calc
 brew install cmatrix
-brew install colordiff
 brew install coreutils
 brew install cowsay
 brew install emacs-mac --with-spacemacs-icon --with-gnutls
 brew install exercism
-brew install eye-d3
 brew install ffind
 brew install findutils
 brew install fish
@@ -57,11 +55,8 @@ brew install iojs
 brew install jq
 brew install libmpdclient
 brew install libssh2
-brew install links
 brew install luajit
 brew install macvim --with-cscope --with-lua --HEAD --override-system-vim --with-python
-brew install mathomatic
-brew install mercurial
 brew install mobile-shell
 brew install mono
 brew install neovim
@@ -69,10 +64,8 @@ brew install ngircd
 brew install ngrep
 brew install node
 brew install opencv --with-opengl --with-ffmpeg --with-cuda
-brew install ossp-uuid
 brew install p7zip
 brew install pandoc
-brew install postgresql
 brew install pstree
 brew install pup
 brew install pypy
@@ -85,8 +78,6 @@ pip3 install --upgrade pip setuptools
 brew install reattach-to-user-namespace
 brew install ruby
 brew install rust
-brew install s-lang
-brew install sdl
 brew install sl
 brew install the_silver_searcher
 brew install tmux
