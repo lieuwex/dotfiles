@@ -32,6 +32,7 @@ function gc # Better and cooler git checkouts.
 	else
 		git checkout $argv
 	end
+	beep
 end
 
 function gp # Better and cooler git pushes.
