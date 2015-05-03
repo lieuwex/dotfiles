@@ -67,6 +67,7 @@ Plug 'othree/xml.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wesQ3/vim-windowswap'
+Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 
 call plug#end()
 
@@ -127,6 +128,12 @@ set undolevels=1000
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " CoffeeScript folding.
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
 set formatoptions+=j " Delete comment character when joining commented lines
+
+" EMOJIS 🎉
+autocmd FileType gitcommit set completefunc=emoji#complete
+let g:ycm_filetype_blacklist = {
+			\ 'gitcommit': 1
+			\}
 
 " funkier ctrl-p-funky.
 let g:ctrlp_funky_matchtype = 'path'
