@@ -76,6 +76,7 @@ set tabstop=4
 set shiftwidth=4
 
 " COLORS.
+set t_Co=256
 syntax on
 let g:solarized_termcolors=256
 set background=dark
@@ -127,6 +128,8 @@ set undolevels=1000
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " CoffeeScript folding.
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
 set formatoptions+=j " Delete comment character when joining commented lines
+set ttyfast
+set gdefault " Use global flag for subsitute by default
 
 " EMOJIS 🎉
 autocmd FileType gitcommit set completefunc=emoji#complete
