@@ -30,7 +30,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'vim-scripts/ZoomWin'
+Plug 'regedarek/ZoomWin'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --omnisharp-completer --gocode-completer' }
 Plug 'rking/ag.vim'
