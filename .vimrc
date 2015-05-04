@@ -67,6 +67,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
+Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 
 call plug#end()
 
