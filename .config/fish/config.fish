@@ -105,6 +105,9 @@ function updateall
 	vim +"PlugUpgrade | PlugClean | PlugInstall | PlugUpdate | qa"
 
 	fish_update_completions
+
+	# Let's leave sudo behind nicely.
+	sudo -k
 end
 
 function google
