@@ -47,7 +47,7 @@ set playing_pref to ""
 if spotify_playing then
 	set pref to playing_pref
 	set track_info to spotify_track_info
-else if iTunes_playing
+else if iTunes_playing then
 	set pref to playing_pref
 	set track_info to iTunes_track_info
 
