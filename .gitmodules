@@ -1,0 +1,18 @@
+[submodule "Desktop/simply/meteor-material-ui/material-ui"]
+	path = Desktop/simply/meteor-material-ui/material-ui
+	url = https://github.com/callemall/material-ui.git
+[submodule ".tmux/plugins/continuum"]
+	path = .tmux/plugins/continuum
+	url = git@github.com:tmux-plugins/tmux-continuum.git
+[submodule ".tmux/plugins/open"]
+	path = .tmux/plugins/open
+	url = git@github.com:tmux-plugins/tmux-open.git
+[submodule ".tmux/plugins/copycat"]
+	path = .tmux/plugins/copycat
+	url = git@github.com:tmux-plugins/tmux-copycat.git
+[submodule ".tmux/plugins/resurrect"]
+	path = .tmux/plugins/resurrect
+	url = git@github.com:tmux-plugins/tmux-resurrect.git
+[submodule ".tmux/plugins/yank"]
+	path = .tmux/plugins/yank
+	url = git@github.com:tmux-plugins/tmux-yank.git
