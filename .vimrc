@@ -167,6 +167,7 @@ set grepprg=ag\ --nogroup\ --nocolor
 nnoremap <Leader>f :Ag 
 
 nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>n :NERDTreeToggle<cr>
 
 command Zen Goyo | Limelight
 command Unzen Goyo | Limelight!
