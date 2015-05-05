@@ -50,9 +50,7 @@ if spotify_playing then
 else if iTunes_playing then
 	set pref to playing_pref
 	set track_info to iTunes_track_info
-
-# paused
-else if iTunes_up and (iTunes_track_info isn't "") then
+else if iTunes_up and (iTunes_track_info isn't "") then # paused
 	set pref to paused_pref
 	set track_info to iTunes_track_info
 else if spotify_up then
