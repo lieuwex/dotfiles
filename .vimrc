@@ -19,6 +19,10 @@ let g:mma_candy = 2
 
 let g:OmniSharp_selector_ui = 'ctrlp'
 
+set background=dark
+let g:solarized_termtrans=0
+let g:solarized_termcolors=256
+
 autocmd BufRead,BufNewFile *.script setfiletype applescript
 
 " Syntastic
@@ -30,7 +34,7 @@ let g:syntastic_always_populate_loc_list = 1
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript'] }
+Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -61,7 +65,7 @@ Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'maksimr/vim-jsbeautify'
-Plug 'mxw/vim-jsx', { 'for': ['jsx', 'html', 'javascript'] }
+Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'rsmenon/vim-mathematica', { 'for': 'mma' }
 Plug 'matze/vim-move'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -92,8 +96,6 @@ set shiftwidth=4
 " COLORS.
 set t_Co=256
 syntax on
-let g:solarized_termcolors=256
-set background=dark
 colorscheme Tomorrow-Night
 
 " autocmd VimEnter * NERDTree | wincmd p " Auto open NERDTree.
