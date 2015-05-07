@@ -19,6 +19,8 @@ let g:mma_candy = 2
 
 let g:OmniSharp_selector_ui = 'ctrlp'
 
+autocmd BufRead,BufNewFile *.script setfiletype applescript
+
 " Syntastic
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_html_tidy_exec = 'tidy5'
@@ -76,6 +78,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'tpope/vim-obsession'
+Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh'] }
 
