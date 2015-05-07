@@ -1,9 +1,7 @@
-alias git hub
 alias l 'la'
-alias s 'git status -s'
-alias suno 'git status -s -uno'
 alias cd.. 'cd ..'
 alias diff 'git diff'
+
 set PATH /usr/local/bin /usr/local/sbin ~/bin $PATH
 set EDITOR /usr/local/bin/vim
 
@@ -25,46 +23,6 @@ end
 
 function short # The best shorter EUW
 	curl "http://www.lieuwex.me/short" -d $argv -s | pbcopy
-end
-
-function gc # Better and cooler git checkouts.
-	if test $argv = "dev"
-		git checkout develop
-	else
-		git checkout $argv
-	end
-end
-
-function gp # Better and cooler git pushes.
-	git push $argv
-	beep
-end
-
-function mupdsh # simplyHomework flow specific push
-	set -lx branch git rev-parse --abbrev-ref HEAD
-	set -lx changes git status --porcelain -uno | wc -l | tr -d '[[:space:]]'
-
-	if test $branch = "develop"
-		if $changes -gt 0
-			git stash save
-		end
-		git push
-		git checkout master
-		git merge develop
-		git push
-		mup deploy
-		git checkout develop
-		if $changes -gt 0
-			git stash apply
-			git stash drop
-		end
-		clear
-		git status
-	else
-		echo "You aren't on branch 'develop' but on branch " + $branch + "."
-	end
-
-	beep
 end
 
 function ip # Prints current IP using Tom Smeding's website.
@@ -126,4 +84,50 @@ end
 function weather
 	set -l url "http://www.accuweather.com/en/nl/wassenaar/251522/weather-forecast/251522"
 	curl -sL $url | awk -F"['\"]" '/acm_RecentLocationsCarousel\.push/{print $2": "$16", "$12"°C ( Feels like "$14"°C )" }'| head -1
+end
+
+# Git stuff.
+alias git hub
+alias s 'git status -s'
+alias suno 's -uno'
+alias b 'git branch'
+
+function gc # Better and cooler git checkouts.
+	if test $argv = "dev"
+		git checkout develop
+	else
+		git checkout $argv
+	end
+end
+
+function gp # Better and cooler git pushes.
+	git push $argv
+	beep
+end
+
+function mupdsh # simplyHomework flow specific push
+	set -lx branch git rev-parse --abbrev-ref HEAD
+	set -lx changes git status --porcelain -uno | wc -l | tr -d '[[:space:]]'
+
+	if test $branch = "develop"
+		if $changes -gt 0
+			git stash save
+		end
+		git push
+		git checkout master
+		git merge develop
+		git push
+		mup deploy
+		git checkout develop
+		if $changes -gt 0
+			git stash apply
+			git stash drop
+		end
+		clear
+		git status
+	else
+		echo "You aren't on branch 'develop' but on branch " + $branch + "."
+	end
+
+	beep
 end
