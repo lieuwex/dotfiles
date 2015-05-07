@@ -1,5 +1,5 @@
 #!/usr/bin/env osascript
-# Returns the current playing song in Spotify for OSX
+# Returns the current playing song in Spotify and iTunes for OSX.
 
 set iTunes_up to false
 set iTunes_playing to false
@@ -55,7 +55,7 @@ else if iTunes_playing then
 else if iTunes_up and (iTunes_track_info isn't "") then
 	set pref to paused_pref
 	set track_info to iTunes_track_info
-else if spotify_up then
+else if spotify_up and (spotify_track_info isn't "") then
 	set pref to paused_pref
 	set track_info to spotify_track_info
 end if
