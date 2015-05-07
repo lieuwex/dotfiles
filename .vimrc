@@ -19,6 +19,13 @@ let g:mma_candy = 2
 
 let g:OmniSharp_selector_ui = 'ctrlp'
 
+" Syntastic
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_html_tidy_exec = 'tidy5'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript'] }
@@ -69,6 +76,8 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'tpope/vim-obsession'
+Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
+Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh'] }
 
 call plug#end()
 
@@ -175,3 +184,5 @@ command Unzen Goyo | Limelight!
 " yup.
 command Wq wq
 command Tabn tabn
+
+autocmd FileType ruby set sw=2 ts=2 et
