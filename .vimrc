@@ -67,7 +67,6 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'rsmenon/vim-mathematica', { 'for': 'mma' }
-Plug 'matze/vim-move'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
