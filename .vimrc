@@ -80,7 +80,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
-Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession' , { 'on': 'Obsession' }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
