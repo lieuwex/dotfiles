@@ -1,6 +1,7 @@
 alias git hub
 alias l 'la'
 alias s 'git status -s'
+alias suno 'git status -s -uno'
 alias cd.. 'cd ..'
 alias diff 'git diff'
 set PATH /usr/local/bin /usr/local/sbin ~/bin $PATH
