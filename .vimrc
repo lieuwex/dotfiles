@@ -83,6 +83,8 @@ Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'tpope/vim-obsession'
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
+Plug 'tpope/vim-unimpaired'
+Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh'] }
 
