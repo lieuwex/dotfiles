@@ -84,6 +84,7 @@ Plug 'tpope/vim-obsession' , { 'on': 'Obsession' }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh'] }
 
