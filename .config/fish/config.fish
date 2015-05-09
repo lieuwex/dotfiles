@@ -42,12 +42,14 @@ function updateall
 	sudo -v
 	echo "😗 🎶"
 
+	sudo npm-update-global
+
+	sudo softwareupdate -i -a
+
 	brew update
 	brew upgrade --all
 	brew cleanup
 	brew cask cleanup
-
-	sudo npm-update-global
 
 	gem update --system
 	gem update
@@ -58,8 +60,6 @@ function updateall
 			eval $pip install --upgrade $package
 		end
 	end
-
-	sudo softwareupdate -i -a
 
 	vim +"PlugUpgrade | PlugClean! | PlugInstall | PlugUpdate | qa"
 
