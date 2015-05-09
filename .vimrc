@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
@@ -46,12 +46,12 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'regedarek/ZoomWin'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --omnisharp-completer --gocode-completer' }
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'mattn/emmet-vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js' }
 Plug 'SirVer/ultisnips'
@@ -86,7 +86,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
-Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh'] }
+Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 
 call plug#end()
 
