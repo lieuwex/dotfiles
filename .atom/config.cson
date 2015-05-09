@@ -1,0 +1,35 @@
+"*":
+  editor:
+    invisibles: {}
+    tabLength: 4
+    showIndentGuide: true
+    showInvisibles: true
+    softTabs: false
+  core:
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    excludeVcsIgnoredPaths: false
+    disabledPackages: [
+      "terminal-panel"
+    ]
+  "exception-reporting":
+    userId: "9cde2665-488e-0b94-858e-3a3318a89833"
+  welcome:
+    showOnStartup: false
+  linter:
+    statusBar: "Show all errors"
+  "travis-ci-status": {}
+  "highlight-line":
+    hideHighlightOnSelect: true
+  "autocomplete-plus": {}
+  "autocomplete-ruby": {}
+  "linter-csslint": {}
+  "linter-jshint": {}
+  "atom-spotify":
+    displayOnLeftSide: false
+  "atom-beautify":
+    _analyticsUserId: "187bb01e-8a2f-4766-8a65-13feeb2b487a"
+  "easy-motion": {}
+  "terminal-panel": {}
