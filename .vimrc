@@ -193,3 +193,8 @@ command Wq wq
 command Tabn tabn
 
 autocmd FileType ruby set sw=2 ts=2 et
+
+augroup HiglightTODOandFIXME
+    autocmd!
+    autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME', -1)
+augroup END
