@@ -69,10 +69,6 @@ function updateall
 	sudo -k
 end
 
-function google
-	echo "https://www.google.nl/search?q="(urlencode $argv)
-end
-
 function vakantie
 	if test "$argv"
 		curl -s "http://vakantie.lieuwex.me/$argv" | jq -r ".friendly"
@@ -86,11 +82,15 @@ function weather
 	curl -sL $url | awk -F"['\"]" '/acm_RecentLocationsCarousel\.push/{print $2": "$16", "$12"°C ( Feels like "$14"°C )" }'| head -1
 end
 
-# Git stuff.
+# === Git stuff.
+
 alias git hub
 alias s 'git status -s'
 alias suno 's -uno'
 alias b 'git branch'
+alias st 'git stash'
+alias sta 'st apply'
+alias stls 'st list'
 
 function gc # Better and cooler git checkouts.
 	if test $argv = "dev"
