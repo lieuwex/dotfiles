@@ -16,3 +16,6 @@
 [submodule ".tmux/plugins/yank"]
 	path = .tmux/plugins/yank
 	url = git@github.com:tmux-plugins/tmux-yank.git
+[submodule ".config/fish/z-fish"]
+	path = .config/fish/z-fish
+	url = git@github.com:sjl/z-fish.git
