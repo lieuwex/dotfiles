@@ -54,6 +54,10 @@ let g:mma_candy = 2
 
 let g:OmniSharp_selector_ui = 'ctrlp'
 
+" Tern
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_move'
+
 set background=dark
 let g:solarized_termtrans=0
 let g:solarized_termcolors=256
@@ -94,7 +98,7 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js' }
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js' }
 Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
