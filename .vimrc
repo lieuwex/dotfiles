@@ -53,6 +53,8 @@ let g:AutoPairsCenterLine = 0
 let g:mma_candy = 2
 
 let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_server_type = 'v1'
+let g:OmniSharp_server_type = 'roslyn'
 
 " Tern
 let g:tern_map_keys=1
@@ -65,6 +67,7 @@ let g:solarized_termcolors=256
 autocmd BufRead,BufNewFile *.script setfiletype applescript
 
 " Syntastic
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_html_tidy_exec = 'tidy5'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
