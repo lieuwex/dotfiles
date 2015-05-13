@@ -88,17 +88,18 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
+Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'regedarek/ZoomWin'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+Plug 'regedarek/ZoomWin'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'mattn/emmet-vim'
+Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlPFunky' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'jsx'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
@@ -107,7 +108,7 @@ Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'html'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tommcdo/vim-exchange'
@@ -117,8 +118,7 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'rsmenon/vim-mathematica', { 'for': 'mma' }
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc', { 'on': 'Pandoc' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'tpope/vim-surround'
@@ -225,9 +225,7 @@ set number
 
 " Faster ctrl-p indexing (http://stackoverflow.com/a/22784889/3142952)
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-set grepprg=ag\ --nogroup\ --nocolor
 
-" Remap Ack to Ag.
 nnoremap <Leader>f :Ag 
 
 nnoremap <Leader>fu :CtrlPFunky<Cr>
