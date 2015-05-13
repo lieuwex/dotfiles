@@ -230,9 +230,11 @@ set number
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 nnoremap <Leader>f :Ag 
-
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>F :Ag <cword><Cr>
+nnoremap <Leader>u :CtrlPFunky<Cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
+nnoremap <Leader>g :GundoToggle<cr>
+nnoremap <Leader>w :w<cr>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -243,6 +245,11 @@ command Unzen Goyo | Limelight!
 " yup.
 command Wq wq
 command Tabn tabn
+
+" Tab swag.
+nnoremap <silent> tt :tabnew<cr>
+au VimEnter * nnoremap <silent> [t :tabprevious<cr>
+au VimEnter * nnoremap <silent> ]t :tabnext<cr>
 
 " File specific settings.
 autocmd FileType ruby set sw=2 ts=2 et
