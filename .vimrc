@@ -129,12 +129,13 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
+Plug 'zah/nimrod.vim', { 'for': 'nim' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
-Plug 'tpope/vim-obsession' , { 'on': 'Obsession' }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 
@@ -231,6 +232,9 @@ nnoremap <Leader>f :Ag
 
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 command Zen Goyo | Limelight
 command Unzen Goyo | Limelight!
