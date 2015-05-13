@@ -108,6 +108,7 @@ Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tommcdo/vim-exchange'
 Plug 'dag/vim-fish', { 'for': 'fish' }
