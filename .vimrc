@@ -197,6 +197,7 @@ set history=1000
 set undolevels=1000
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " CoffeeScript folding.
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteTags
 set formatoptions+=j " Delete comment character when joining commented lines
 set ttyfast
 set gdefault " Use global flag for subsitute by default
@@ -241,7 +242,9 @@ command Unzen Goyo | Limelight!
 command Wq wq
 command Tabn tabn
 
+" File specific settings.
 autocmd FileType ruby set sw=2 ts=2 et
+autocmd FileType python set sw=4 ts=4 et
 
 augroup HiglightTODOandFIXME
     autocmd!
