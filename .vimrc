@@ -201,6 +201,8 @@ autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteT
 set formatoptions+=j " Delete comment character when joining commented lines
 set ttyfast
 set gdefault " Use global flag for subsitute by default
+nnoremap / /\v
+vnoremap / /\v
 
 " EMOJIS 🎉
 autocmd FileType gitcommit set completefunc=emoji#complete
