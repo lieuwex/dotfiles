@@ -1,3 +1,9 @@
+" Lieuwe Rooijakkers' vimrc
+" This uses YCM as completer per default, if this is too heavy for your system
+" you can set the following `use_ycm` variable to 0, which will enable
+" NeoComplete instead. ( Be sure to `:PlugInstall` afterwards ).
+let use_ycm = 1
+
 set nocompatible
 
 set shell=/bin/sh
@@ -10,9 +16,35 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_x = ""
 let g:airline_section_y = "%{airline#util#wrap(airline#parts#filetype(),0)}"
 
-let g:ycm_complete_in_comments = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+if use_ycm " YouCompleteMe
+	let g:ycm_complete_in_comments = 1
+	let g:ycm_autoclose_preview_window_after_completion = 0
+	let g:ycm_autoclose_preview_window_after_insertion = 1
+	" let g:ycm_filetype_blacklist = {
+	" 			\ 'css': 1,
+	" 			\ 'stylus': 1,
+	" 			\ 'vim': 1,
+	" 			\ 'sh': 1,
+	" 			\ 'coffee': 1,
+	" 			\ 'html': 1,
+	" 			\ 'markdown': 1,
+	" 			\ 'mustache': 1
+	" 			\}
+else " Neocomplete
+	let g:acp_enableAtStartup = 0
+	let g:neocomplete#enable_at_startup = 1
+	let g:neocomplete#enable_smart_case = 1
+	let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#syntax#min_keyword_length = 2
+	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+	set shortmess+=c
+
+	let g:neocomplete#enable_auto_select = 0
+	let g:jedi#popup_select_first = 0
+	let g:jedi#auto_vim_configuration = 0
+	let g:jedi#completions_enabled = 0
+	let g:jedi#use_tabs_not_buffers = 1
+endif
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 
@@ -37,6 +69,13 @@ let g:syntastic_always_populate_loc_list = 1
 
 call plug#begin('~/.vim/plugged')
 
+if use_ycm
+	Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --omnisharp-completer --gocode-completer' }
+else
+	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+	Plug 'Shougo/neocomplete.vim' ", { 'for': ['css', 'stylus', 'vim', 'sh', 'coffee', 'html', 'markdown', 'mustache'] }
+endif
+
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -48,7 +87,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'regedarek/ZoomWin'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --omnisharp-completer --gocode-completer' }
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tacahiroy/ctrlp-funky'
@@ -155,9 +193,6 @@ set gdefault " Use global flag for subsitute by default
 
 " EMOJIS 🎉
 autocmd FileType gitcommit set completefunc=emoji#complete
-let g:ycm_filetype_blacklist = {
-			\ 'gitcommit': 1
-			\}
 
 " funkier ctrl-p-funky.
 let g:ctrlp_funky_matchtype = 'path'
