@@ -85,6 +85,7 @@ endif
 
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'kien/ctrlp.vim'
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/syntastic'
