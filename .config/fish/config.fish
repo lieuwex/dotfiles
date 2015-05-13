@@ -1,15 +1,12 @@
+source ~/.config/fish/z-fish/z.fish
+
+set PATH /usr/local/bin /usr/local/sbin ~/bin $PATH
+set EDITOR vim
+
 alias l 'la'
 alias cd.. 'cd ..'
 alias diff 'git diff'
-
-set PATH /usr/local/bin /usr/local/sbin ~/bin $PATH
-set EDITOR /usr/local/bin/vim
-
-source ~/.config/fish/z-fish/z.fish
-
-function beep # For some reason OS X doesnt have beep installed.
-	tput bel
-end
+alias beep 'tput bel'
 
 function clear # Clear with command(s).
 	command clear
