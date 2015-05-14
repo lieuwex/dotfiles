@@ -87,6 +87,7 @@ alias suno 's -uno'
 alias b 'git branch'
 alias st 'git stash'
 alias sta 'st apply'
+alias sts 'st save'
 alias stls 'st list'
 
 function gc # Better and cooler git checkouts.
