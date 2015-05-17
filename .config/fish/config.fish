@@ -85,6 +85,10 @@ function fixairplay # For when airplay sucks ass again.
 	sudo -k
 end
 
+function olocal
+	open "http://localhost:$argv"
+end
+
 # === Git stuff.
 
 alias git hub
