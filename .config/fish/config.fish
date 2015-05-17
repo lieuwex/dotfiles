@@ -79,6 +79,12 @@ function weather
 	curl -sL $url | awk -F"['\"]" '/acm_RecentLocationsCarousel\.push/{print $2": "$16", "$12"°C ( Feels like "$14"°C )" }'| head -1
 end
 
+function fixairplay # For when airplay sucks ass again.
+	sudo launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+	sudo launchctl load /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+	sudo -k
+end
+
 # === Git stuff.
 
 alias git hub
