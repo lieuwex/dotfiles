@@ -48,6 +48,7 @@ else " Neocomplete
 endif
 
 let g:UltiSnipsExpandTrigger="<c-j>"
+let g:snips_author = "Lieuwe Rooijakkers"
 
 let g:AutoPairsCenterLine = 0
 
