@@ -95,6 +95,7 @@ alias st 'git stash'
 alias sta 'st apply'
 alias sts 'st save'
 alias stls 'st list'
+alias gs 'git show'
 
 function gc # Better and cooler git checkouts.
 	if test $argv = "dev"
