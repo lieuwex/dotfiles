@@ -139,6 +139,7 @@ Plug 'vim-pandoc/vim-pandoc', { 'on': 'Pandoc' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/xml.vim'
@@ -218,6 +219,8 @@ autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteT
 set formatoptions+=j " Delete comment character when joining commented lines
 set ttyfast
 set gdefault " Use global flag for subsitute by default
+nnoremap ? ?\v
+vnoremap ? ?\v
 nnoremap / /\v
 vnoremap / /\v
 
@@ -263,14 +266,22 @@ command Unzen Goyo | Limelight!
 command Wq wq
 command Tabn tabn
 
+command Fullpath echo expand('%:p')
+
 " Tab swag.
 nnoremap <silent> tt :tabnew<cr>
+nnoremap <silent> tc :tabclose<cr>
 au VimEnter * nnoremap <silent> [t :tabprevious<cr>
 au VimEnter * nnoremap <silent> ]t :tabnext<cr>
+
+" Remove need to press enter after quiting from a Man page.
+nnoremap K K<CR>
+vnoremap K K<CR>
 
 " File specific settings.
 autocmd FileType ruby set sw=2 ts=2 et
 autocmd FileType python set sw=4 ts=4 et
+autocmd FileType cpp set keywordprg=cppman
 
 augroup HiglightTODOandFIXME
     autocmd!
