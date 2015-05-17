@@ -41,6 +41,20 @@ else " Neocomplete
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 	set shortmess+=c
 
+	" Called once right before you start selecting multiple cursors
+	function! Multiple_cursors_before()
+		if exists(':NeoCompleteLock') == 2
+			exe 'NeoCompleteLock'
+		endif
+	endfunction
+
+	" Called once only when the multiple selection is canceled (default <Esc>)
+	function! Multiple_cursors_after()
+		if exists(':NeoCompleteUnlock') == 2
+			exe 'NeoCompleteUnlock'
+		endif
+	endfunction
+
 	let g:neocomplete#enable_auto_select = 0
 	let g:jedi#popup_select_first = 0
 	let g:jedi#auto_vim_configuration = 0
