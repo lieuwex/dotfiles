@@ -10,6 +10,7 @@ set shell=/bin/sh
 set laststatus=2
 set autoread
 set timeoutlen=350 ttimeoutlen=25
+set updatetime=250
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -60,7 +61,7 @@ let g:OmniSharp_server_type = 'roslyn'
 
 " Tern
 let g:tern_map_keys=1
-let g:tern_show_argument_hints='on_move'
+let g:tern_show_argument_hints='on_hold'
 
 set background=dark
 let g:solarized_termtrans=0
