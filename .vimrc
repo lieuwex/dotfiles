@@ -274,6 +274,12 @@ nnoremap <silent> tc :tabclose<cr>
 au VimEnter * nnoremap <silent> [t :tabprevious<cr>
 au VimEnter * nnoremap <silent> ]t :tabnext<cr>
 
+function! ResizeToSelection() range
+	execute "resize " . (a:lastline - a:firstline + 1)
+	norm zt
+endfunction
+vnoremap <Leader>s :call ResizeToSelection()<Cr>
+
 " Remove need to press enter after quiting from a Man page.
 nnoremap K K<CR>
 vnoremap K K<CR>
