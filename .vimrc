@@ -281,7 +281,7 @@ function! ResizeToSelection() range
 	execute "resize " . (a:lastline - a:firstline + 1)
 	norm zt
 endfunction
-vnoremap <Leader>s :call ResizeToSelection()<Cr>
+vnoremap <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
 
 " Remove need to press enter after quiting from a Man page.
 nnoremap K K<CR>
