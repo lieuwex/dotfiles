@@ -100,6 +100,8 @@ else
 	Plug 'Shougo/neocomplete.vim' ", { 'for': ['css', 'stylus', 'vim', 'sh', 'coffee', 'html', 'markdown', 'mustache'] }
 endif
 
+Plug 'majutsushi/tagbar'
+Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ctrlpvim/ctrlp.vim'
@@ -252,6 +254,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 nnoremap <Leader>f :Ag 
 nnoremap <Leader>F :Ag <cword><Cr>
 nnoremap <Leader>u :CtrlPFunky<Cr>
+nnoremap <Leader>t :CtrlPTag<Cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
 nnoremap <Leader>g :GundoToggle<cr>
 nnoremap <Leader>w :w<cr>
