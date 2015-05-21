@@ -11,3 +11,5 @@
 	helper = osxkeychain
 [diff]
 	algorithm = patience
+[merge]
+	conflictstyle = diff3
