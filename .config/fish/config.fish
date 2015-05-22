@@ -85,7 +85,7 @@ function fixairplay # For when airplay sucks ass again.
 	sudo -k
 end
 
-function olocal
+function lopen
 	open "http://localhost:$argv"
 end
 
