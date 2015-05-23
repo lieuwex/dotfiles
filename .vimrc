@@ -100,7 +100,7 @@ else
 	Plug 'Shougo/neocomplete.vim' ", { 'for': ['css', 'stylus', 'vim', 'sh', 'coffee', 'html', 'markdown', 'mustache'] }
 endif
 
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
 Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -111,6 +111,7 @@ Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-speeddating'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
@@ -150,6 +151,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
@@ -255,6 +257,7 @@ nnoremap <Leader>f :Ag
 nnoremap <Leader>F :Ag <cword><Cr>
 nnoremap <Leader>u :CtrlPFunky<Cr>
 nnoremap <Leader>t :CtrlPTag<Cr>
+nnoremap <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
 nnoremap <Leader>g :GundoToggle<cr>
 nnoremap <Leader>w :w<cr>
