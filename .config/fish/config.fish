@@ -55,7 +55,7 @@ function updateall
 	gem cleanup
 
 	for pip in pip pip3
-		for package in (eval $pip list | awk '{print $1}')
+		for package in (eval $pip list -o | awk '{print $1}')
 			eval $pip install --upgrade $package
 		end
 	end
