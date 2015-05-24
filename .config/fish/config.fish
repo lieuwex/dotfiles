@@ -15,7 +15,7 @@ alias ms 'meteor shell'
 alias mm 'meteor mongo'
 
 function cdm
-	mkdir $argv
+	mkdir -p $argv
 	cd $argv
 end
 
