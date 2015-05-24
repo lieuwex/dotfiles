@@ -14,6 +14,11 @@ alias beep 'tput bel'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
 
+function cdm
+	mkdir $argv
+	cd $argv
+end
+
 function clear # Clear with command(s).
 	command clear
 	eval $argv
