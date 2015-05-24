@@ -15,8 +15,11 @@ alias ms 'meteor shell'
 alias mm 'meteor mongo'
 
 function cdm
-	mkdir -p $argv
-	cd $argv
+	if test -z "$argv"
+		echo 'usage: cdm <path>'
+		return
+	end
+	mkdir -p -- $argv; and cd $argv
 end
 
 function clear # Clear with command(s).
