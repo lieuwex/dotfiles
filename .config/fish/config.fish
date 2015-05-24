@@ -1,6 +1,10 @@
 source ~/.config/fish/z-fish/z.fish
 
-set PATH /usr/local/bin /usr/local/sbin ~/bin $PATH
+set NPM_PACKAGES ~/.npm-packages
+set NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
+set MANPATH
+set MANPATH $NPM_PACKAGES/share/man (manpath)
+set PATH $NPM_PACKAGES/bin /usr/local/bin /usr/local/sbin ~/bin $PATH
 set EDITOR vim
 
 alias l 'la'
@@ -41,9 +45,9 @@ function updateall
 	sudo -v
 	echo "😗 🎶"
 
-	sudo npm-update-global
-
 	sudo softwareupdate -i -a
+
+	npm update -g
 
 	brew update
 	brew upgrade --all
