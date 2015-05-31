@@ -66,9 +66,13 @@ def on_buffer_input(data, modifier, modifier_data, message):
 
             return res
         else:
+            res = '\n'.join([ ripmessage, message ])
+
             originalrip = None
             ripmessage = None
             currentrip = None
+
+            return res
 
     for word in metarips:
         if '\n' in word:
