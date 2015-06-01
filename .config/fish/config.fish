@@ -36,6 +36,10 @@ function short # The best shorter EUW
 	curl "http://www.lieuwex.me/short" -d $argv -s | pbcopy
 end
 
+function silent # Silently executes a function
+	eval $argv > /dev/null 2>&1
+end
+
 function ip # Prints current IP using Tom Smeding's website.
 	curl -s "http://tomsmeding.nl/ip.php"
 end
