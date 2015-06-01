@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# 2015-06-01: Lieuwe Rooijakkers <lieuwerooijakkers@gmail.com> (http://www.lieuwex.me/)
+# 2015-05-01: Lieuwe Rooijakkers <lieuwerooijakkers@gmail.com> (http://www.lieuwex.me/)
 #        0.1: initial release
 
 try:
