@@ -272,7 +272,7 @@ command Unzen Goyo | Limelight!
 command Wq wq
 command Tabn tabn
 
-command Fullpath echo expand('%:p')
+command Path echo expand('%:p')
 
 " Tab swag.
 nnoremap <silent> tt :tabnew<cr>
@@ -295,7 +295,7 @@ autocmd FileType ruby set sw=2 ts=2 et
 autocmd FileType python set sw=4 ts=4 et
 autocmd FileType cpp set keywordprg=cppman
 
-augroup HiglightTODOandFIXME
+augroup HighlightRed
     autocmd!
-    autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME', -1)
+    autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
 augroup END
