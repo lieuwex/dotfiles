@@ -298,10 +298,10 @@ nnoremap K K<CR>
 vnoremap K K<CR>
 
 " File specific settings.
-autocmd FileType coffee set sw=2 ts=2
-autocmd FileType ruby set sw=2 ts=2 et
-autocmd FileType python set sw=4 ts=4 et
-autocmd FileType cpp set keywordprg=cppman
+autocmd FileType coffee setlocal sw=2 ts=2
+autocmd FileType ruby setlocal sw=2 ts=2 et
+autocmd FileType python setlocal sw=4 ts=4 et
+autocmd FileType cpp setlocal keywordprg=cppman
 
 augroup HighlightRed
     autocmd!
