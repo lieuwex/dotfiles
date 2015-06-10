@@ -91,6 +91,12 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 
+if !exists("g:ycm_semantic_triggers")
+	let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['rust'] = ['.', ':']
+let $RUST_SRC_PATH = expand('~/rust/src')
+
 call plug#begin('~/.vim/plugged')
 
 if use_ycm
@@ -152,6 +158,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'phildawes/racer', { 'for': 'rust', 'do': 'cargo build --release' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
