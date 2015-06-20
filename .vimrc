@@ -236,6 +236,8 @@ vnoremap ? ?\v
 nnoremap / /\v
 vnoremap / /\v
 
+iabbrev Metoer Meteor
+
 " EMOJIS 🎉
 autocmd FileType gitcommit set completefunc=emoji#complete
 
