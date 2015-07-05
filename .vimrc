@@ -168,6 +168,7 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
+Plug 'gkz/vim-ls', { 'for': 'ls' }
 
 call plug#end()
 
@@ -302,6 +303,7 @@ vnoremap K K<CR>
 
 " File specific settings.
 autocmd FileType coffee setlocal sw=2 ts=2
+autocmd FileType ls setlocal sw=2 ts=2
 autocmd FileType ruby setlocal sw=2 ts=2 et
 autocmd FileType python setlocal sw=4 ts=4 et
 autocmd FileType cpp setlocal keywordprg=cppman
