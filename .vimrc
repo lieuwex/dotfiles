@@ -280,8 +280,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 command Zen Goyo | Limelight
 command Unzen Goyo | Limelight!
 
-" yup.
-command Wq wq
 command Tabn tabn
 
 command Path echo expand('%:p')
@@ -297,6 +295,8 @@ function! ResizeToSelection() range
 	norm zt
 endfunction
 vnoremap <silent> <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
+
+nnoremap <Leader>y ^y$
 
 " Remove need to press enter after quiting from a Man page.
 nnoremap K K<CR>
