@@ -263,6 +263,7 @@ set number
 
 " Faster ctrl-p indexing (http://stackoverflow.com/a/22784889/3142952)
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 nnoremap <Leader>f :Ag 
 nnoremap <Leader>F :Ag <cword><Cr>
