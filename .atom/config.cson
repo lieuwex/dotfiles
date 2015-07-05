@@ -5,15 +5,17 @@
     showIndentGuide: true
     showInvisibles: true
     softTabs: false
+    scrollPastEnd: true
+    fontSize: 15
   core:
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
-    excludeVcsIgnoredPaths: false
     disabledPackages: [
       "terminal-panel"
     ]
+    excludeVcsIgnoredPaths: false
   "exception-reporting":
     userId: "9cde2665-488e-0b94-858e-3a3318a89833"
   welcome:
@@ -33,3 +35,11 @@
     _analyticsUserId: "187bb01e-8a2f-4766-8a65-13feeb2b487a"
   "easy-motion": {}
   "terminal-panel": {}
+  "you-complete-me":
+    globalExtraConfig: ".ycm_extra_conf.py"
+  "atom-ternjs": {}
+  minimap: {}
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  pigments: {}
