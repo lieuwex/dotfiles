@@ -169,6 +169,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
+Plug 'haya14busa/incsearch.vim'
 
 call plug#end()
 
@@ -232,10 +233,9 @@ autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteT
 set formatoptions+=j " Delete comment character when joining commented lines
 set ttyfast
 set gdefault " Use global flag for subsitute by default
-nnoremap ? ?\v
-vnoremap ? ?\v
-nnoremap / /\v
-vnoremap / /\v
+map /  <Plug>(incsearch-forward)\v
+map ?  <Plug>(incsearch-backward)\v
+map g/ <Plug>(incsearch-stay)\v
 
 iabbrev Metoer Meteor
 
