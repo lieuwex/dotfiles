@@ -177,6 +177,7 @@ call plug#end()
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
+set textwidth=80
 
 " COLORS.
 set t_Co=256
