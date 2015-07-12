@@ -239,6 +239,7 @@ map ?  <Plug>(incsearch-backward)\v
 map g/ <Plug>(incsearch-stay)\v
 
 iabbrev Metoer Meteor
+iabbrev ednl endl
 
 " EMOJIS 🎉
 autocmd FileType gitcommit set completefunc=emoji#complete
