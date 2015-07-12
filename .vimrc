@@ -281,8 +281,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 command Zen Goyo | Limelight
 command Unzen Goyo | Limelight!
 
-command Tabn tabn
-
 command Path echo expand('%:p')
 
 " Tab swag.
@@ -297,7 +295,7 @@ function! ResizeToSelection() range
 endfunction
 vnoremap <silent> <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
 
-nnoremap <Leader>y ^y$
+nnoremap <Leader>y mY^y$`Y
 
 " Remove need to press enter after quiting from a Man page.
 nnoremap K K<CR>
