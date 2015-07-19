@@ -259,10 +259,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " More swag with the arrow keys
-nnoremap <UP> :tabp<Cr>
-nnoremap <DOWN> :tabn<Cr>
-nnoremap <LEFT> :bp<Cr>
-nnoremap <RIGHT> :bn<Cr>
+nnoremap <silent> <UP> :tabp<Cr>
+nnoremap <silent> <DOWN> :tabn<Cr>
+nnoremap <silent> <LEFT> :bp<Cr>
+nnoremap <silent> <RIGHT> :bn<Cr>
 
 " Hybrid line numbering.
 set relativenumber
@@ -273,12 +273,12 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
 let g:ctrlp_use_caching = 0
 
 nnoremap <Leader>f :Ag! 
-nnoremap <Leader>F :Ag! <cword><Cr>
-nnoremap <Leader>u :CtrlPFunky<Cr>
-nnoremap <Leader>t :CtrlPTag<Cr>
-nnoremap <Leader><Leader>t :TagbarToggle<Cr>
-nnoremap <Leader>n :NERDTreeToggle<cr>
-nnoremap <Leader>g :GundoToggle<cr>
+nnoremap <silent> <Leader>F :Ag! <cword><Cr>
+nnoremap <silent> <Leader>u :CtrlPFunky<Cr>
+nnoremap <silent> <Leader>t :CtrlPTag<Cr>
+nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
+nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
+nnoremap <silent> <Leader>g :GundoToggle<cr>
 nnoremap <Leader>w :w<cr>
 
 vmap v <Plug>(expand_region_expand)
