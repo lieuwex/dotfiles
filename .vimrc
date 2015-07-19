@@ -221,7 +221,6 @@ set smartcase " Search case insensitive, unless I really want to.
 set nowrap
 let g:NERDTreeWinSize=20
 set clipboard=unnamed " Use system clipboard for yanking.
-let g:ctrlp_show_hidden = 1 " CTRLP: Show files starting with a dot.
 "autocmd BufRead,BufNewFile *.md,*.janus,*.txt setlocal spell spelllang=en_us,nl,de_de " Set spellchecking on for text files.
 autocmd BufRead,BufNewFile *.html setlocal wrap " Wrap HTML files.
 autocmd BufRead,BufNewFile *.es6,*.bjsx setfiletype javascript " We need them syntax yo.
@@ -270,7 +269,7 @@ set relativenumber
 set number
 
 " Faster ctrl-p indexing (http://stackoverflow.com/a/22784889/3142952)
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
 let g:ctrlp_use_caching = 0
 
 nnoremap <Leader>f :Ag! 
