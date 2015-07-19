@@ -100,6 +100,28 @@ endif
 let g:ycm_semantic_triggers['rust'] = ['.', ':']
 let $RUST_SRC_PATH = expand('~/rust/src')
 
+let g:tagbar_type_rust = {
+	\ 'ctagstype' : 'rust',
+	\ 'kinds' : [
+		\'T:types,type definitions',
+		\'f:functions,function definitions',
+		\'g:enum,enumeration names',
+		\'s:structure names',
+		\'m:modules,module names',
+		\'c:consts,static constants',
+		\'t:traits,traits',
+		\'i:impls,trait implementations',
+	\]
+\}
+let g:tagbar_type_markdown = {
+	\'ctagstype' : 'markdown',
+	\'kinds' : [
+		\'h:Heading_L1',
+		\'i:Heading_L2',
+		\'k:Heading_L3'
+	\]
+\}
+
 call plug#begin('~/.vim/plugged')
 
 if use_ycm
@@ -176,6 +198,8 @@ Plug 'dahu/diffo'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-rsi'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 
 call plug#end()
 
