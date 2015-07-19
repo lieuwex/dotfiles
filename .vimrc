@@ -314,6 +314,8 @@ autocmd FileType ruby setlocal sw=2 ts=2 et
 autocmd FileType python setlocal sw=4 ts=4 et
 autocmd FileType cpp setlocal keywordprg=cppman
 
+nnoremap <Leader>d :YcmCompleter GoTo<Cr>
+
 augroup HighlightRed
     autocmd!
     autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
