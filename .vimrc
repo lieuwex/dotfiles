@@ -92,6 +92,8 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 
+let g:incsearch#emacs_like_keymap = 1
+
 if !exists("g:ycm_semantic_triggers")
 	let g:ycm_semantic_triggers = {}
 endif
@@ -170,6 +172,7 @@ Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
 Plug 'haya14busa/incsearch.vim'
+Plug 'tpope/vim-rsi'
 
 call plug#end()
 
