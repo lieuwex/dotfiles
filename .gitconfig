@@ -16,3 +16,7 @@
 	tool = fugitive
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[git-up "fetch"]
+	all = true
+[git-up "rebase"]
+	arguments = --preserve-merges
