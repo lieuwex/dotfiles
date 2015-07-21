@@ -100,6 +100,9 @@ endif
 let g:ycm_semantic_triggers['rust'] = ['.', ':']
 let $RUST_SRC_PATH = expand('~/rust/src')
 
+let g:tagbar_left = 1
+let g:tagbar_width = 30
+
 let g:tagbar_type_rust = {
 	\ 'ctagstype' : 'rust',
 	\ 'kinds' : [
