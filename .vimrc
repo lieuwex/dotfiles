@@ -203,6 +203,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-rsi'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
+Plug 'mattn/webapi-vim'
+Plug 'mmozuras/vim-github-comment'
 
 call plug#end()
 

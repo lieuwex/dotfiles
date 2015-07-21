@@ -26,3 +26,5 @@
 	pretty = fuller
 [rebase]
 	stat = true
+[github]
+	user = lieuwex
