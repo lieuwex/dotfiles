@@ -301,7 +301,7 @@ set number
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
 let g:ctrlp_use_caching = 0
 
-nnoremap <Leader>f :Ag! 
+nnoremap <Leader>f :Ag! ''<left>
 nnoremap <silent> <Leader>F :Ag! <cword><Cr>
 nnoremap <silent> <Leader>u :CtrlPFunky<Cr>
 nnoremap <silent> <Leader>t :CtrlPTag<Cr>
