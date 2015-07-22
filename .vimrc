@@ -205,6 +205,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'mattn/webapi-vim'
 Plug 'mmozuras/vim-github-comment'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
@@ -240,7 +241,7 @@ highlight SpecialKey ctermfg=237
 
 " Remember last line location.
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 set noshowmode " We have airline, which already shows the current mode.
@@ -346,6 +347,6 @@ autocmd FileType cpp setlocal keywordprg=cppman
 nnoremap <Leader>d :YcmCompleter GoTo<Cr>
 
 augroup HighlightRed
-    autocmd!
-    autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
+	autocmd!
+	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
 augroup END
