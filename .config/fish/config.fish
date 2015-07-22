@@ -1,5 +1,3 @@
-source ~/.config/fish/z-fish/z.fish
-
 set NPM_PACKAGES ~/.npm-packages
 set NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
 set MANPATH

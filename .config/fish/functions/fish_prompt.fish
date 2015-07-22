@@ -4,9 +4,6 @@ function fish_prompt --description "Write out the prompt"
 		set -g __fish_prompt_normal (set_color normal)
 	end
 
-	# Give `z` the current folder to learn from.
-	z --add "$PWD"
-
 	switch $USER
 		case root
 			if not set -q __fish_prompt_cwd
