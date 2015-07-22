@@ -111,6 +111,7 @@ end
 alias git hub
 alias s 'git status -s'
 alias suno 's -uno'
+alias gl 'git log --oneline'
 alias b 'git branch -vv'
 alias st 'git stash'
 alias sta 'st apply'
