@@ -11,6 +11,7 @@ alias diff 'git diff'
 alias beep 'tput bel'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
+alias remake 'make remake'
 
 function cdm
 	if test -z "$argv"
