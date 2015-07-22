@@ -309,7 +309,7 @@ nnoremap <silent> <Leader>t :CtrlPTag<Cr>
 nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
 nnoremap <silent> <Leader>g :GundoToggle<cr>
-nnoremap <Leader>w :w<cr>
+nnoremap <Leader>w :up<cr>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
