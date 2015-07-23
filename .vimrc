@@ -206,6 +206,7 @@ Plug 'xolox/vim-easytags'
 Plug 'mattn/webapi-vim'
 Plug 'mmozuras/vim-github-comment'
 Plug 'tpope/vim-sleuth'
+Plug 'benmills/vimux'
 
 call plug#end()
 
@@ -350,3 +351,38 @@ augroup HighlightRed
 	autocmd!
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
 augroup END
+
+let g:replopen = 0
+function! OpenREPL()
+	if &ft == "coffee"
+		let repl = "coffee"
+	elseif &ft == "javascript"
+		let repl = "node"
+	endif
+
+	if !empty(repl)
+		call VimuxRunCommand(repl)
+		call VimuxClearRunnerHistory()
+		let g:replopen = 1
+	endif
+endfunction
+
+function! CloseREPL()
+	let g:replopen = 0
+	call VimuxCloseRunner()
+endfunction
+
+function! Run() range
+	if !g:replopen
+		call OpenREPL()
+	endif
+
+	let i = a:firstline
+	while i <= a:lastline
+		call VimuxRunCommand(getline(i))
+		let i += 1
+	endwhile
+endfunction
+
+command! -range Run <line1>,<line2>call Run()
+command! Closerepl call CloseREPL()
