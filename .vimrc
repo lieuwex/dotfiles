@@ -358,6 +358,12 @@ function! OpenREPL()
 		let repl = "coffee"
 	elseif &ft == "javascript"
 		let repl = "node"
+	elseif &ft == "python"
+		let repl = "python3"
+	elseif &ft == "ls"
+		let repl = "lsc"
+	elseif &ft == "ruby"
+		let repl = "irb"
 	endif
 
 	if !empty(repl)
