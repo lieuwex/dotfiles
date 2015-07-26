@@ -118,9 +118,14 @@ alias sta 'st apply'
 alias sts 'st save'
 alias stls 'st list'
 alias gs 'git show'
+alias gss 'git show (fch)'
 alias gcb 'git checkout -b'
 alias gfa 'git fetch --all'
 alias gu 'git up'
+
+function fch
+	git log --color=always --pretty=oneline --abbrev-commit --reverse | fzf-tmux --tac +s +m -e --ansi --reverse | awk '{ print $1 }'
+end
 
 function gc # Better and cooler git checkouts.
 	if test $argv = "dev"
