@@ -348,6 +348,17 @@ autocmd FileType cpp setlocal keywordprg=cppman
 
 nnoremap <Leader>d :YcmCompleter GoTo<Cr>
 
+nnoremap <BS> <C-o>
+nnoremap <Space>w :up<Cr>
+nnoremap <Space>wq ZZ
+nnoremap <Space>wqa :wqa<Cr>
+nnoremap <Space>q :q<Cr>
+nnoremap <Space>qq :q!<Cr>
+nnoremap <Space>qaa :qa!<Cr>
+nnoremap <Space>e :e<Cr>
+nnoremap <Space>ee :e!<Cr>
+nnoremap <Space> :
+
 augroup HighlightRed
 	autocmd!
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
