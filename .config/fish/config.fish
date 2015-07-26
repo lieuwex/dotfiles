@@ -122,12 +122,15 @@ alias gss 'git show (fch)'
 alias gcb 'git checkout -b'
 alias gfa 'git fetch --all'
 alias gu 'git up'
+alias gc 'git commit'
+alias gca 'gc --amend'
+alias gcan 'gc --amend --no-edit'
 
 function fch
 	git log --color=always --pretty=oneline --abbrev-commit --reverse | fzf-tmux --tac +s +m -e --ansi --reverse | awk '{ print $1 }'
 end
 
-function gc # Better and cooler git checkouts.
+function gck # Better and cooler git checkouts.
 	if test $argv = "dev"
 		git checkout develop
 	else
