@@ -300,7 +300,7 @@ set relativenumber
 set number
 
 " Faster ctrl-p indexing (http://stackoverflow.com/a/22784889/3142952)
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git --ignore ".*.swp" -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
 
