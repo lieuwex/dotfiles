@@ -100,6 +100,10 @@ endif
 let g:ycm_semantic_triggers['rust'] = ['.', ':']
 let $RUST_SRC_PATH = expand('~/rust/src')
 
+let g:CoffeeAutoTagFile = '~/.vimtags'
+let g:CoffeeAutoTagIncludeVars = 1
+let g:CoffeeAutoTagTagRelative = 0
+
 let g:tagbar_left = 1
 let g:tagbar_width = 30
 
