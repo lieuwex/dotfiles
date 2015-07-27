@@ -156,7 +156,6 @@ Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'regedarek/ZoomWin'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlPFunky' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'jsx'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
@@ -284,11 +283,6 @@ iabbrev ednl endl
 " EMOJIS 🎉
 autocmd FileType gitcommit set completefunc=emoji#complete
 
-" funkier ctrl-p-funky.
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_multi_buffers = 1
-let g:ctrlp_funky_syntax_highlight = 1
-
 " Make < > shifts keep selection.
 vnoremap < <gv
 vnoremap > >gv
@@ -314,7 +308,6 @@ let g:ctrlp_working_path_mode = 0
 
 nnoremap <Leader>f :Ag! ''<left>
 nnoremap <silent> <Leader>F :Ag! <cword><Cr>
-nnoremap <silent> <Leader>u :CtrlPFunky<Cr>
 nnoremap <silent> <Leader>t :CtrlPTag<Cr>
 nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
