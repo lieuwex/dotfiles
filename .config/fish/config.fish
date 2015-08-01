@@ -12,6 +12,7 @@ alias beep 'tput bel'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
 alias remake 'make remake'
+alias vimswap 'vim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'s/\/\./\//\')'
 
 function cdm
 	if test -z "$argv"
