@@ -140,7 +140,7 @@ endif
 
 Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
 Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
-Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -156,11 +156,11 @@ Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'regedarek/ZoomWin'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'jsx'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
+Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
 Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
@@ -173,7 +173,7 @@ Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'maksimr/vim-jsbeautify'
-Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'rsmenon/vim-mathematica', { 'for': 'mma' }
 Plug 'vim-pandoc/vim-pandoc', { 'on': 'Pandoc' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
