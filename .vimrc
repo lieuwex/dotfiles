@@ -355,6 +355,7 @@ nnoremap <Space>wq ZZ
 nnoremap <Space>wqa :wqa<Cr>
 nnoremap <Space>q :q<Cr>
 nnoremap <Space>qq :q!<Cr>
+nnoremap <Space>qa :qa<Cr>
 nnoremap <Space>qaa :qa!<Cr>
 nnoremap <Space>e :e<Cr>
 nnoremap <Space>ee :e!<Cr>
