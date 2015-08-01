@@ -224,6 +224,8 @@ set t_Co=256
 syntax on
 colorscheme Tomorrow-Night
 
+set mouse=a
+
 " autocmd VimEnter * NERDTree | wincmd p " Auto open NERDTree.
 " Clear search query results with ctrl+l.
 nnoremap <silent> <C-l> :noh<CR><C-l>
