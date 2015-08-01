@@ -349,6 +349,8 @@ autocmd FileType cpp setlocal keywordprg=cppman
 
 nnoremap <Leader>d :YcmCompleter GoTo<Cr>
 
+command Sudowrite w !sudo tee > /dev/null %
+
 nnoremap <BS> <C-o>
 nnoremap <Space>w :up<Cr>
 nnoremap <Space>wq ZZ
