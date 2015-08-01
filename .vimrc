@@ -87,6 +87,7 @@ autocmd BufRead,BufNewFile *.script setfiletype applescript
 " Syntastic
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 let g:syntastic_html_tidy_exec = 'tidy5'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_check_on_wq = 0
