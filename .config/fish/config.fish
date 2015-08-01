@@ -5,7 +5,7 @@ set MANPATH $NPM_PACKAGES/share/man /usr/local/opt/coreutils/libexec/gnuman (man
 set PATH $NPM_PACKAGES/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
 set EDITOR vim
 
-alias l 'la'
+alias l 'ls -lAh'
 alias cd.. 'cd ..'
 alias diff 'git diff'
 alias beep 'tput bel'
