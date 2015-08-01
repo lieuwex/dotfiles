@@ -208,7 +208,6 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'mattn/webapi-vim'
 Plug 'mmozuras/vim-github-comment'
-Plug 'tpope/vim-sleuth'
 Plug 'benmills/vimux'
 
 call plug#end()
