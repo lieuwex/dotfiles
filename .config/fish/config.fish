@@ -144,6 +144,14 @@ function gp # Better and cooler git pushes.
 	beep
 end
 
+function sti
+	echo "stash@{$argv}"
+end
+
+function stai
+	sta (sti $argv)
+end
+
 function mupdsh # simplyHomework flow specific push
 	set -lx branch git rev-parse --abbrev-ref HEAD
 	set -lx changes git status --porcelain -uno | wc -l | tr -d '[[:space:]]'
