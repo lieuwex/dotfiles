@@ -323,8 +323,8 @@ nnoremap <Leader>w :up<cr>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-command Zen Goyo | Limelight
-command Unzen Goyo | Limelight!
+command Zen Goyo | Limelight | set nolist
+command Unzen Goyo | Limelight! | set list
 
 command Path echo expand('%:p')
 
