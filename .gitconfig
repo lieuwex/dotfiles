@@ -28,3 +28,6 @@
 	stat = true
 [github]
 	user = lieuwex
+[rerere]
+	enabled = true
+	autoupdate = true
