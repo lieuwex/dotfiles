@@ -289,6 +289,10 @@ autocmd FileType gitcommit set completefunc=emoji#complete
 vnoremap < <gv
 vnoremap > >gv
 
+" Faster surrounds
+xmap ' S'
+xmap " S"
+
 " More swag with the arrow keys
 nnoremap <silent> <UP> :tabp<Cr>
 nnoremap <silent> <DOWN> :tabn<Cr>
