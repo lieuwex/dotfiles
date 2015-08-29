@@ -352,6 +352,7 @@ autocmd FileType coffee setlocal sw=2 ts=2
 autocmd FileType ls setlocal sw=2 ts=2
 autocmd FileType ruby setlocal sw=2 ts=2 et
 autocmd FileType python setlocal sw=4 ts=4 et
+autocmd FileType html,mustache setlocal formatoptions-=t
 autocmd FileType cpp setlocal keywordprg=cppman
 
 nnoremap <Leader>d :YcmCompleter GoTo<Cr>
