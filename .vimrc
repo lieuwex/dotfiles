@@ -95,12 +95,6 @@ let g:syntastic_always_populate_loc_list = 1
 
 let g:incsearch#emacs_like_keymap = 1
 
-if !exists("g:ycm_semantic_triggers")
-	let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['rust'] = ['.', ':']
-let $RUST_SRC_PATH = expand('~/rust/src')
-
 let g:CoffeeAutoTagFile = '~/.vimtags'
 let g:CoffeeAutoTagIncludeVars = 1
 let g:CoffeeAutoTagTagRelative = 0
@@ -144,9 +138,7 @@ Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTag
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
@@ -186,11 +178,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'othree/xml.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'wesQ3/vim-windowswap'
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'phildawes/racer', { 'for': 'rust', 'do': 'cargo build --release' }
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
