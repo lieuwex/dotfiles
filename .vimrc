@@ -127,7 +127,7 @@ let g:tagbar_type_markdown = {
 call plug#begin('~/.vim/plugged')
 
 if use_ycm
-	Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --omnisharp-completer --gocode-completer' }
+	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --gocode-completer' }
 else
 	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 	Plug 'Shougo/neocomplete.vim' ", { 'for': ['css', 'stylus', 'vim', 'sh', 'coffee', 'html', 'markdown', 'mustache'] }
