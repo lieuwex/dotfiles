@@ -199,6 +199,7 @@ Plug 'xolox/vim-easytags'
 Plug 'mattn/webapi-vim'
 Plug 'mmozuras/vim-github-comment'
 Plug 'benmills/vimux'
+Plug 'elmcast/elm-vim'
 
 call plug#end()
 
