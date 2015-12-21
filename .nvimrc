@@ -102,6 +102,7 @@ let g:neomake_warning_sign = {
 	\ 'text': 'W>',
 	\ 'texthl': 'WarningMsg',
 	\ }
+let g:neomake_verbose = 0
 
 let g:incsearch#emacs_like_keymap = 1
 
