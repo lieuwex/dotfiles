@@ -46,7 +46,7 @@ def shrug(data, buffer, args):
     return weechat.WEECHAT_RC_OK
 
 def showcount(data, buffer, args):
-    weechat.command(buffer, "I've done %g shrugs!" % count)
+    weechat.command(buffer, "I've shrugged %g times!" % count)
     return weechat.WEECHAT_RC_OK
 
 weechat.hook_command("shrug", "Shrug", "", "", "", "shrug", weechat.current_buffer())
