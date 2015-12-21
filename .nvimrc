@@ -211,6 +211,7 @@ Plug 'mattn/gist-vim'
 Plug 'mmozuras/vim-github-comment'
 Plug 'benmills/vimux'
 Plug 'elmcast/elm-vim'
+Plug 'zoeesilcock/vim-caniuse'
 Plug 'Valloric/MatchTagAlways'
 
 call plug#end()
