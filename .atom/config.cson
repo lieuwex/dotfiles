@@ -43,3 +43,5 @@
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
   pigments: {}
+  "linter-golinter": {}
+  "vim-mode-plus": {}
