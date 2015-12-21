@@ -4,8 +4,6 @@
 " NeoComplete instead. ( Be sure to `:PlugInstall` afterwards ).
 let use_ycm = 1
 
-set nocompatible
-
 set shell=/bin/sh
 set laststatus=2
 set autoread
@@ -33,6 +31,11 @@ if use_ycm " YouCompleteMe
 	" 			\ 'markdown': 1,
 	" 			\ 'mustache': 1
 	" 			\}
+
+	let g:neomake_c_checkers = []
+	let g:neomake_cpp_checkers = []
+	let g:neomake_objc_checkers = []
+	let g:neomake_objcpp_checkers = []
 else " Neocomplete
 	let g:acp_enableAtStartup = 0
 	let g:neocomplete#enable_at_startup = 1
@@ -84,14 +87,13 @@ let g:solarized_termcolors=256
 
 autocmd BufRead,BufNewFile *.script setfiletype applescript
 
-" Syntastic
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_html_tidy_exec = 'tidy5'
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_check_on_wq = 0
-let g:syntastic_always_populate_loc_list = 1
+" Neomake
+autocmd! BufWinEnter,FileReadPost,BufWritePost * Neomake
+let g:neomake_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
+let g:neomake_ruby_checkers = ['rubocop']
+let g:neomake_javascript_checkers = ['eslint', 'flow']
+let g:neomake_python_python_exe = '/usr/local/bin/python3'
+let g:neomake_always_populate_loc_list = 1
 
 let g:incsearch#emacs_like_keymap = 1
 
@@ -124,7 +126,7 @@ let g:tagbar_type_markdown = {
 	\]
 \}
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 if use_ycm
 	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --gocode-completer' }
@@ -134,12 +136,12 @@ else
 endif
 
 Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
-Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
+" Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
 Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-speeddating'
@@ -160,6 +162,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'html'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
+" Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'html', 'stylus'] }
 Plug 'tpope/vim-dispatch'
 Plug 'tommcdo/vim-exchange'
 Plug 'dag/vim-fish', { 'for': 'fish' }
@@ -195,7 +198,7 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-rsi'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-easytags'
 Plug 'mattn/webapi-vim'
 Plug 'mmozuras/vim-github-comment'
 Plug 'benmills/vimux'
@@ -210,7 +213,6 @@ set shiftwidth=4
 set textwidth=80
 
 " COLORS.
-set t_Co=256
 syntax on
 colorscheme Tomorrow-Night
 
@@ -263,7 +265,6 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " Co
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteTags
 set formatoptions+=j " Delete comment character when joining commented lines
-set ttyfast
 set gdefault " Use global flag for subsitute by default
 map /  <Plug>(incsearch-forward)\v
 map ?  <Plug>(incsearch-backward)\v
@@ -360,6 +361,8 @@ nnoremap <Space>qa :qa<Cr>
 nnoremap <Space>qaa :qa!<Cr>
 nnoremap <Space>e :e<Cr>
 nnoremap <Space>ee :e!<Cr>
+nnoremap <Space>s :%s/\v
+nnoremap <Space>ss :.s/\v
 nnoremap <Space> :
 
 augroup HighlightRed

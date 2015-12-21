@@ -2,9 +2,11 @@ set NPM_PACKAGES ~/.npm-packages
 set NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
 set MANPATH
 set MANPATH $NPM_PACKAGES/share/man /usr/local/opt/coreutils/libexec/gnuman (manpath)
-set EDITOR vim
 set PATH $NPM_PACKAGES/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
+set EDITOR nvim
 set -x FZF_DEFAULT_COMMAND 'ag -g "" -l --nocolor --hidden --ignore .git --ignore ".*.swp" --ignore ".sw*" --ignore .DS_Store -g ""'
+
+alias vim nvim
 
 alias l 'ls -lAh'
 alias cd.. 'cd ..'
@@ -13,7 +15,7 @@ alias beep 'tput bel'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
 alias remake 'make remake'
-alias vimswap 'vim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'s/\/\./\//\')'
+alias vimswap 'nvim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'s/\/\./\//\')'
 
 function cdm
 	if test -z "$argv"
@@ -77,7 +79,7 @@ function updateall
 		end
 	end
 
-	vim +"PlugUpgrade | PlugClean! | PlugInstall | PlugUpdate | qa"
+	nvim +"PlugUpgrade | PlugClean! | PlugInstall | PlugUpdate | qa"
 
 	fish_update_completions
 
