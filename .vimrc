@@ -297,6 +297,7 @@ set number
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
 			\ --ignore .git
 			\ --ignore ".*.swp"
+			\ --ignore ".sw*"
 			\ --ignore .DS_Store
 			\ -g ""'
 let g:ctrlp_use_caching = 0
