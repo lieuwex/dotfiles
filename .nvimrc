@@ -183,7 +183,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
-Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow'] }
+Plug 'simnalamburt/vim-mundo', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
