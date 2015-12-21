@@ -94,7 +94,14 @@ let g:neomake_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
 let g:neomake_ruby_checkers = ['rubocop']
 let g:neomake_javascript_checkers = ['eslint', 'flow']
 let g:neomake_python_python_exe = '/usr/local/bin/python3'
-let g:neomake_always_populate_loc_list = 1
+let g:neomake_error_sign = {
+	\ 'text': 'E>',
+	\ 'texthl': 'ErrorMsg',
+	\ }
+let g:neomake_warning_sign = {
+	\ 'text': 'W>',
+	\ 'texthl': 'WarningMsg',
+	\ }
 
 let g:incsearch#emacs_like_keymap = 1
 
