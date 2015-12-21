@@ -108,6 +108,11 @@ function lopen
 	open "http://localhost:$argv"
 end
 
+function fd
+	set -l dir (find * -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf-tmux +m)
+	cd "$dir"
+end
+
 # === Git stuff.
 
 alias git hub
