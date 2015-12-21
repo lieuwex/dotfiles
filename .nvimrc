@@ -78,6 +78,8 @@ let g:tern_show_argument_hints='on_hold'
 
 set background=dark
 
+let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
+
 autocmd BufRead,BufNewFile *.script setfiletype applescript
 
 " Neomake
@@ -196,6 +198,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mmozuras/vim-github-comment'
 Plug 'benmills/vimux'
 Plug 'elmcast/elm-vim'
+Plug 'Valloric/MatchTagAlways'
 
 call plug#end()
 
