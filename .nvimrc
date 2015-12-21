@@ -77,8 +77,6 @@ let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
 
 set background=dark
-let g:solarized_termtrans=0
-let g:solarized_termcolors=256
 
 autocmd BufRead,BufNewFile *.script setfiletype applescript
 
@@ -154,7 +152,6 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
 Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
 Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'html'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
