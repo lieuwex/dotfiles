@@ -85,6 +85,11 @@ autocmd BufRead,BufNewFile *.script setfiletype applescript
 " Neomake
 let blacklist = [ 'c', 'cpp', 'objc', 'objcpp' ]
 autocmd BufWinEnter,FileReadPost,BufWritePost * if index(blacklist, &ft) < 0 | Neomake
+let g:neomake_mustache_tidy_maker = {
+	\ 'args': ['-e', '-q', '--gnu-emacs', 'true'],
+	\ 'errorformat': '%A%f:%l:%c: Warning: %m',
+	\ }
+let g:neomake_mustache_enabled_makers = ['tidy']
 let g:neomake_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
 let g:neomake_ruby_checkers = ['rubocop']
 let g:neomake_javascript_checkers = ['eslint', 'flow']
