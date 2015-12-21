@@ -31,11 +31,6 @@ if use_ycm " YouCompleteMe
 	" 			\ 'markdown': 1,
 	" 			\ 'mustache': 1
 	" 			\}
-
-	let g:neomake_c_checkers = []
-	let g:neomake_cpp_checkers = []
-	let g:neomake_objc_checkers = []
-	let g:neomake_objcpp_checkers = []
 else " Neocomplete
 	let g:acp_enableAtStartup = 0
 	let g:neocomplete#enable_at_startup = 1
@@ -88,7 +83,8 @@ let g:solarized_termcolors=256
 autocmd BufRead,BufNewFile *.script setfiletype applescript
 
 " Neomake
-autocmd! BufWinEnter,FileReadPost,BufWritePost * Neomake
+let blacklist = [ 'c', 'cpp', 'objc', 'objcpp' ]
+autocmd BufWinEnter,FileReadPost,BufWritePost * if index(blacklist, &ft) < 0 | Neomake
 let g:neomake_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
 let g:neomake_ruby_checkers = ['rubocop']
 let g:neomake_javascript_checkers = ['eslint', 'flow']
