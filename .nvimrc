@@ -158,7 +158,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'regedarek/ZoomWin'
-Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'mhinz/vim-grepper'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -315,8 +315,8 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
 
-nnoremap <Leader>f :Ag! ''<left>
-nnoremap <silent> <Leader>F :Ag! <cword><Cr>
+nnoremap <Leader>f :Grepper! -tool ag  -open -switch<Cr>
+nnoremap <silent> <Leader>F :Grepper! -tool ag -open -switch -cword!<Cr>
 nnoremap <silent> <Leader>t :CtrlPTag<Cr>
 nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
