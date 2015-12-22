@@ -201,7 +201,7 @@ Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
 Plug 'haya14busa/incsearch.vim'
-Plug 'dahu/diffo'
+Plug 'dahu/diffo', { 'on': 'DiffOrig' }
 Plug 'PeterRincker/vim-argumentative'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-rsi'
