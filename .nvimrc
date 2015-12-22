@@ -215,6 +215,7 @@ Plug 'elmcast/elm-vim'
 Plug 'zoeesilcock/vim-caniuse'
 Plug 'Valloric/MatchTagAlways'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'vim-utils/vim-man', { 'on': ['Man', 'Vman', 'Mangrep'] }
 
 call plug#end()
 
