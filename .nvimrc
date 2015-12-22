@@ -214,6 +214,7 @@ Plug 'benmills/vimux'
 Plug 'elmcast/elm-vim'
 Plug 'zoeesilcock/vim-caniuse'
 Plug 'Valloric/MatchTagAlways'
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 
 call plug#end()
 
