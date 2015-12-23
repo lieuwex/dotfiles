@@ -269,7 +269,7 @@ autocmd BufRead,BufNewFile *.es6,*.bjsx setfiletype javascript " We need them sy
 set complete+=kspell " Word completion.
 set cursorline " Highlight the current line.
 set scrolljump=5 " Jump some lines when scrolling the window down.
-set incsearch " When searched, use current search query as a query for a subsitute.
+set incsearch " When searched, use current search query as a query for a substitute.
 set hlsearch
 set splitright " Split to the right side when using vsplit.
 set wildmenu " Autocompletion menu on ex commands.
@@ -279,7 +279,7 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " Co
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteTags
 set formatoptions+=j " Delete comment character when joining commented lines
-set gdefault " Use global flag for subsitute by default
+set gdefault " Use global flag for substitute by default
 map /  <Plug>(incsearch-forward)\v
 map ?  <Plug>(incsearch-backward)\v
 map g/ <Plug>(incsearch-stay)\v
