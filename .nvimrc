@@ -90,9 +90,9 @@ let g:neomake_mustache_tidy_maker = {
 	\ 'errorformat': '%A%f:%l:%c: Warning: %m',
 	\ }
 let g:neomake_mustache_enabled_makers = ['tidy']
-let g:neomake_cs_checkers = ['syntax', 'semantic', 'issues', 'codecheck']
-let g:neomake_ruby_checkers = ['rubocop']
-let g:neomake_javascript_checkers = ['eslint', 'flow']
+let g:neomake_cs_enabled_makers = ['syntax', 'semantic', 'issues', 'codecheck']
+let g:neomake_ruby_enabled_makers = ['rubocop']
+let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
 let g:neomake_python_python_exe = '/usr/local/bin/python3'
 let g:neomake_error_sign = {
 	\ 'text': 'E>',
