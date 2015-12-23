@@ -217,6 +217,8 @@ Plug 'zoeesilcock/vim-caniuse'
 Plug 'Valloric/MatchTagAlways'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'vim-utils/vim-man', { 'on': ['Man', 'Vman', 'Mangrep'] }
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 call plug#end()
 
@@ -323,6 +325,12 @@ nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
 nnoremap <silent> <Leader>g :GundoToggle<cr>
 nnoremap <Leader>w :up<cr>
+
+function! OpenGHIssue(word)
+	let l:issue = substitute(a:word, "[^#0-9]", "", "g")
+	execute "OpenGithubIssue " . l:issue
+endfunction
+nnoremap <silent> <Leader>gi :exec 'call OpenGHIssue(' expand('<cword>') ')'<CR>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
