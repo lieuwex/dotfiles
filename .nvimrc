@@ -68,7 +68,6 @@ let g:AutoPairsCenterLine = 0
 
 let g:mma_candy = 2
 
-let g:OmniSharp_selector_ui = 'ctrlp'
 let g:OmniSharp_server_type = 'v1'
 let g:OmniSharp_server_type = 'roslyn'
 
@@ -148,7 +147,6 @@ Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
 " Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
 Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'benekastah/neomake'
 Plug 'Lokaltog/vim-easymotion'
@@ -158,7 +156,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'regedarek/ZoomWin'
-Plug 'mhinz/vim-grepper'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -220,7 +217,13 @@ Plug 'vim-utils/vim-man', { 'on': ['Man', 'Vman', 'Mangrep'] }
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 
+Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
+
+let g:fzf_nvim_statusline = 0
+let g:fzf_layout = { 'window': 'belowright 12new' }
 
 " Tab indention > space indention.
 set noexpandtab
@@ -308,19 +311,10 @@ nnoremap <silent> <RIGHT> :bn<Cr>
 set relativenumber
 set number
 
-" Faster ctrl-p indexing (http://stackoverflow.com/a/22784889/3142952)
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
-			\ --ignore .git
-			\ --ignore ".*.swp"
-			\ --ignore ".sw*"
-			\ --ignore .DS_Store
-			\ -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_working_path_mode = 0
-
-nnoremap <Leader>f :Grepper! -tool ag  -open -switch<Cr>
-nnoremap <silent> <Leader>F :Grepper! -tool ag -open -switch -cword!<Cr>
-nnoremap <silent> <Leader>t :CtrlPTag<Cr>
+nnoremap <silent> <Leader>f :Ag<Cr>
+nnoremap <silent> <Leader>F :Ag <C-R><C-W><CR>
+nnoremap <silent> <C-p> :Files<Cr>
+nnoremap <silent> <Leader>t :Tags<Cr>
 nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
 nnoremap <silent> <Leader>g :GundoToggle<cr>
