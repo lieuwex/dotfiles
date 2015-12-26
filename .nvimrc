@@ -31,6 +31,15 @@ if use_ycm " YouCompleteMe
 	" 			\ 'markdown': 1,
 	" 			\ 'mustache': 1
 	" 			\}
+
+	function! Multiple_cursors_before()
+		let s:old_ycm_whitelist = g:ycm_filetype_whitelist
+		let g:ycm_filetype_whitelist = {}
+	endfunction
+
+	function! Multiple_cursors_after()
+		let g:ycm_filetype_whitelist = s:old_ycm_whitelist
+	endfunction
 else " Neocomplete
 	let g:acp_enableAtStartup = 0
 	let g:neocomplete#enable_at_startup = 1
@@ -194,7 +203,6 @@ Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-Plug 'terryma/vim-expand-region'
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
@@ -325,9 +333,6 @@ function! OpenGHIssue(word)
 	execute "OpenGithubIssue " . l:issue
 endfunction
 nnoremap <silent> <Leader>gi :exec 'call OpenGHIssue(' expand('<cword>') ')'<CR>
-
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 command Zen Goyo | Limelight | set nolist
 command Unzen Goyo | Limelight! | set list
