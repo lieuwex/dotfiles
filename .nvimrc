@@ -231,7 +231,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:fzf_nvim_statusline = 0
-let g:fzf_layout = { 'window': 'belowright 12new' }
+let g:fzf_layout = { 'window': 'botright 12new' }
 
 " Tab indention > space indention.
 set noexpandtab
