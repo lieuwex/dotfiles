@@ -2,7 +2,7 @@ set NPM_PACKAGES ~/.npm-packages
 set NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
 set MANPATH
 set MANPATH $NPM_PACKAGES/share/man /usr/local/opt/coreutils/libexec/gnuman (manpath)
-set PATH $NPM_PACKAGES/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
+set PATH $GOPATH/bin $NPM_PACKAGES/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
 set EDITOR nvim
 set -x FZF_DEFAULT_COMMAND 'ag -g "" -l --nocolor --hidden --ignore .git --ignore ".*.swp" --ignore ".sw*" --ignore .DS_Store -g ""'
 
