@@ -157,9 +157,8 @@ Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
 " Plug 'lukaszkorecki/CoffeeTags', { 'for': 'coffee', 'do': 'gem install CoffeeTags' }
 Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'benekastah/neomake'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-speeddating'
 Plug 'terryma/vim-multiple-cursors'
@@ -194,7 +193,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'othree/xml.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
@@ -217,7 +215,6 @@ Plug 'xolox/vim-misc'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'mmozuras/vim-github-comment'
-Plug 'benmills/vimux'
 Plug 'elmcast/elm-vim'
 Plug 'zoeesilcock/vim-caniuse'
 Plug 'Valloric/MatchTagAlways'
@@ -243,7 +240,6 @@ set textwidth=80
 syntax on
 colorscheme Tomorrow-Night
 
-" autocmd VimEnter * NERDTree | wincmd p " Auto open NERDTree.
 " Clear search query results with ctrl+l.
 nnoremap <silent> <C-l> :noh<CR><C-l>
 
@@ -272,9 +268,8 @@ set hidden " Hidden buffers swag.
 set ignorecase
 set smartcase " Search case insensitive, unless I really want to.
 set nowrap
-let g:NERDTreeWinSize=20
 set clipboard=unnamed " Use system clipboard for yanking.
-"autocmd BufRead,BufNewFile *.md,*.janus,*.txt setlocal spell spelllang=en_us,nl,de_de " Set spellchecking on for text files.
+" autocmd FileType markdown,html,pandoc,text setlocal spell spelllang=en_us,nl_nl " Set spellchecking on for text files.
 autocmd BufRead,BufNewFile *.html setlocal wrap " Wrap HTML files.
 autocmd BufRead,BufNewFile *.es6,*.bjsx setfiletype javascript " We need them syntax yo.
 set complete+=kspell " Word completion.
@@ -324,7 +319,6 @@ nnoremap <silent> <Leader>F :Ag <C-R><C-W><CR>
 nnoremap <silent> <C-p> :Files<Cr>
 nnoremap <silent> <Leader>t :Tags<Cr>
 nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
-nnoremap <silent> <Leader>n :NERDTreeToggle<cr>
 nnoremap <silent> <Leader>g :GundoToggle<cr>
 nnoremap <Leader>w :up<cr>
 
@@ -388,44 +382,3 @@ augroup HighlightRed
 	autocmd!
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
 augroup END
-
-let g:replopen = 0
-function! OpenREPL()
-	if &ft == "coffee"
-		let repl = "coffee"
-	elseif &ft == "javascript"
-		let repl = "node"
-	elseif &ft == "python"
-		let repl = "python3"
-	elseif &ft == "ls"
-		let repl = "lsc"
-	elseif &ft == "ruby"
-		let repl = "irb"
-	endif
-
-	if !empty(repl)
-		call VimuxRunCommand(repl)
-		call VimuxClearRunnerHistory()
-		let g:replopen = 1
-	endif
-endfunction
-
-function! CloseREPL()
-	let g:replopen = 0
-	call VimuxCloseRunner()
-endfunction
-
-function! Run() range
-	if !g:replopen
-		call OpenREPL()
-	endif
-
-	let i = a:firstline
-	while i <= a:lastline
-		call VimuxRunCommand(getline(i))
-		let i += 1
-	endwhile
-endfunction
-
-command! -range Run <line1>,<line2>call Run()
-command! Closerepl call CloseREPL()
