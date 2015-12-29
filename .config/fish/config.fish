@@ -8,6 +8,7 @@ set EDITOR nvim
 alias vim nvim
 
 alias l 'ls -lAh'
+alias ll 'ls -lAhtr'
 alias cd.. 'cd ..'
 alias diff 'git diff'
 alias beep 'tput bel'
