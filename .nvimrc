@@ -382,3 +382,14 @@ augroup HighlightRed
 	autocmd!
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
 augroup END
+
+" * and # in visual mode.
+" Taken from https://github.com/scrooloose/vimfiles
+function! s:VSetSearch()
+	let temp = @@
+	norm! gvy
+	let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+	let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
