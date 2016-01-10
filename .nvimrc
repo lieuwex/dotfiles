@@ -207,7 +207,7 @@ Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'dahu/diffo', { 'on': 'DiffOrig' }
-Plug 'PeterRincker/vim-argumentative'
+Plug 'AndrewRadev/sideways.vim'
 Plug 'tpope/vim-rsi'
 Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
@@ -376,6 +376,13 @@ nnoremap <Space>ee :e!<Cr>
 nnoremap <Space>s :%s/\v
 nnoremap <Space>ss :.s/\v
 nnoremap <Space> :
+
+nnoremap <a :SidewaysLeft<cr>
+nnoremap >a :SidewaysRight<cr>
+omap aa <Plug>SidewaysArgumentTextobjA
+xmap aa <Plug>SidewaysArgumentTextobjA
+omap ia <Plug>SidewaysArgumentTextobjI
+xmap ia <Plug>SidewaysArgumentTextobjI
 
 augroup HighlightRed
 	autocmd!
