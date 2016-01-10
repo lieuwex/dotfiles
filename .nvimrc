@@ -352,6 +352,7 @@ nnoremap <Leader>v ^v$h
 
 " File specific settings.
 autocmd FileType coffee setlocal sw=2 ts=2
+autocmd FileType stylus setlocal sw=2 ts=2
 autocmd FileType ls setlocal sw=2 ts=2
 autocmd FileType ruby setlocal sw=2 ts=2 et
 autocmd FileType python setlocal sw=4 ts=4 et
