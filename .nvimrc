@@ -393,7 +393,7 @@ xmap ia <Plug>SidewaysArgumentTextobjI
 
 augroup HighlightRed
 	autocmd!
-	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW', -1)
+	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW\|BUG', -1)
 augroup END
 
 " * and # in visual mode.
