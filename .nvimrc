@@ -350,10 +350,6 @@ vnoremap <silent> <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
 nnoremap <Leader>y mY^y$`Y
 nnoremap <Leader>v ^v$h
 
-" Remove need to press enter after quiting from a Man page.
-nnoremap K K<CR>
-vnoremap K K<CR>
-
 " File specific settings.
 autocmd FileType coffee setlocal sw=2 ts=2
 autocmd FileType ls setlocal sw=2 ts=2
