@@ -225,6 +225,8 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'wellle/targets.vim'
+
 call plug#end()
 
 let g:fzf_nvim_statusline = 0
