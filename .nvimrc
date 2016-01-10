@@ -208,7 +208,6 @@ Plug 'gkz/vim-ls', { 'for': 'ls' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'dahu/diffo', { 'on': 'DiffOrig' }
 Plug 'PeterRincker/vim-argumentative'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-rsi'
 Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
