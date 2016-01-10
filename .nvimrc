@@ -290,7 +290,7 @@ set formatoptions+=j " Delete comment character when joining commented lines
 set gdefault " Use global flag for substitute by default
 map /  <Plug>(incsearch-forward)\v
 map ?  <Plug>(incsearch-backward)\v
-map g/ <Plug>(incsearch-stay)\v
+map g/ <Plug>(easymotion-sn)\v
 
 iabbrev Metoer Meteor
 iabbrev ednl endl
