@@ -365,16 +365,23 @@ command Sudowrite w !sudo tee > /dev/null %
 
 nnoremap <BS> <C-o>
 nnoremap <Space>w :up<Cr>
+nnoremap <Space>wa :wa<Cr>
+
 nnoremap <Space>wq ZZ
 nnoremap <Space>wqa :wqa<Cr>
 nnoremap <Space>q :q<Cr>
 nnoremap <Space>qq :q!<Cr>
 nnoremap <Space>qa :qa<Cr>
 nnoremap <Space>qaa :qa!<Cr>
+
 nnoremap <Space>e :e<Cr>
 nnoremap <Space>ee :e!<Cr>
-nnoremap <Space>s :%s/\v
+
+nnoremap <Space>sa :%s/\v
 nnoremap <Space>ss :.s/\v
+nnoremap <Space>sa/ :%s//
+nnoremap <Space>ss/ :.s//
+
 nnoremap <Space> :
 
 nnoremap <a :SidewaysLeft<cr>
