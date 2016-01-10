@@ -219,7 +219,7 @@ Plug 'zoeesilcock/vim-caniuse'
 Plug 'Valloric/MatchTagAlways'
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'tyru/open-browser.vim'
-Plug 'tyru/open-browser-github.vim'
+Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 
 Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
