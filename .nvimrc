@@ -384,6 +384,9 @@ nnoremap <Space>ss/ :.s//
 
 nnoremap <Space> :
 
+nnoremap <Leader>sf :setf 
+nnoremap <Leader>sfmu :setf mustache<cr>
+nnoremap <Leader>sfjs :setf javascript<cr>
 
 function! SetMustache()
 	if expand('%:p') =~ "/Users/lieuwe/Desktop/simply/simplyHomework"
