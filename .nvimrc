@@ -391,6 +391,16 @@ xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
 
+function! SetMustache()
+	if expand('%:p') =~ "/Users/lieuwe/Desktop/simply/simplyHomework"
+		setlocal filetype=mustache
+	endif
+endfunction
+augroup MustacheOpen
+	autocmd!
+	autocmd FileType html :call SetMustache()
+augroup END
+
 augroup HighlightRed
 	autocmd!
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW\|BUG', -1)
