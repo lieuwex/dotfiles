@@ -348,6 +348,7 @@ vnoremap <silent> <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
 
 nnoremap <Leader>y mY^y$`Y
 nnoremap <Leader>v ^v$h
+nnoremap Y y$
 
 " File specific settings.
 autocmd FileType coffee setlocal sw=2 ts=2
