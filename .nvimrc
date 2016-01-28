@@ -173,7 +173,8 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
 Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'html'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
