@@ -399,6 +399,9 @@ augroup MustacheOpen
 	autocmd FileType html :call SetMustache()
 augroup END
 
+nnoremap Q ~
+nnoremap ~ Q
+
 augroup HighlightRed
 	autocmd!
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW\|BUG', -1)
