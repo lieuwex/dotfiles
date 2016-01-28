@@ -37,7 +37,7 @@ charset = ""
 
 w.register(name, author, version, license, description, shutdown_function, charset)
 
-metarips = ["ri\np", "irp", "rpi", "rio", "ri["]
+metarips = ["ri\np", "riop", "irp", "rpi", "rio", "ri[", "rip[", "ripp"]
 originalrip = None
 currentrip = None
 ripmessage = None
