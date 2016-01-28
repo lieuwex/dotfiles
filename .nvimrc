@@ -189,7 +189,7 @@ Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'rsmenon/vim-mathematica', { 'for': 'mma' }
-Plug 'vim-pandoc/vim-pandoc', { 'on': 'Pandoc' }
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'tpope/vim-surround'
@@ -199,7 +199,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
-Plug 'zah/nimrod.vim', { 'for': 'nim' }
+Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'simnalamburt/vim-mundo', { 'on': ['GundoToggle', 'GundoShow'] }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'tpope/vim-unimpaired'
@@ -228,6 +228,7 @@ Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'wellle/targets.vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
