@@ -17,6 +17,7 @@ alias mm 'meteor mongo'
 alias remake 'make remake'
 alias vimswap 'nvim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'s/\/\./\//\')'
 alias less 'less -iR'
+alias cdd 'cd ~/Downloads'
 
 function cdm
 	if test -z "$argv"
