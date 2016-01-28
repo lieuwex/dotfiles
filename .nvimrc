@@ -33,6 +33,8 @@ if use_ycm " YouCompleteMe
 	" 			\ 'mustache': 1
 	" 			\}
 
+	let g:ycm_semantic_triggers = {'haskell' : ['.']}
+
 	function! Multiple_cursors_before()
 		let s:old_ycm_whitelist = g:ycm_filetype_whitelist
 		let g:ycm_filetype_whitelist = {}
@@ -357,6 +359,7 @@ autocmd FileType stylus setlocal sw=2 ts=2
 autocmd FileType ls setlocal sw=2 ts=2
 autocmd FileType ruby setlocal sw=2 ts=2 et
 autocmd FileType python setlocal sw=4 ts=4 et
+autocmd FileType haskell setlocal sw=2 ts=2 et
 autocmd FileType html,mustache setlocal formatoptions-=t
 autocmd FileType cpp setlocal keywordprg=cppman
 
