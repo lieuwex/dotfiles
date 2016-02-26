@@ -389,7 +389,7 @@ nnoremap <Space>ss :.s/\v
 nnoremap <Space>sa/ :%s//
 nnoremap <Space>ss/ :.s//
 
-nnoremap <Space> :
+nnoremap <Cr> :
 
 nnoremap <Leader>sf :setf 
 nnoremap <Leader>sfmu :setf mustache<cr>
