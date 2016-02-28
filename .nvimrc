@@ -148,24 +148,24 @@ Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
-Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'mxw/vim-jsx', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
 
 " Filetype specific utils
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
-Plug 'maksimr/vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'javascript.jsx', 'jsx', 'json', 'html', 'css'] }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
 " Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'html', 'stylus'] }
@@ -182,8 +182,8 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'dahu/diffo', { 'on': 'DiffOrig' }
 Plug 'rhysd/devdocs.vim'
 Plug 'zoeesilcock/vim-caniuse'
-Plug 'mmozuras/vim-github-comment'
-Plug 'mattn/gist-vim'
+Plug 'mmozuras/vim-github-comment', { 'on': 'GHComment' }
+Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 
 " UI
