@@ -236,6 +236,7 @@ Plug 'tpope/vim-rsi'
 Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
 Plug 'Valloric/MatchTagAlways'
+Plug 'bogado/file-line'
 
 call plug#end()
 
