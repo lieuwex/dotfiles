@@ -189,7 +189,7 @@ Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 " UI
 Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
 Plug 'vim-airline/vim-airline'
-Plug 'simnalamburt/vim-mundo', { 'on': ['GundoToggle', 'GundoShow'] }
+Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
@@ -337,7 +337,7 @@ nnoremap <silent> <Leader>f :Ag<Cr>
 nnoremap <silent> <Leader>F :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>t :Tags<Cr>
 nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
-nnoremap <silent> <Leader>g :GundoToggle<cr>
+nnoremap <silent> <Leader>g :MundoToggle<cr>
 nnoremap <Leader>w :up<cr>
 nnoremap <silent> <C-p> :Files<Cr>
 
