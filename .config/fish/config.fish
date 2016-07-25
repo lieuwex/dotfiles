@@ -22,6 +22,9 @@ alias less 'less -iR'
 alias cdd 'cd ~/Downloads'
 alias js 'n_'
 
+# set tabwidth to 4
+tabs -4
+
 function cdm
 	if test -z "$argv"
 		echo 'usage: cdm <path>'
