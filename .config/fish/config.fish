@@ -165,30 +165,3 @@ end
 function stai
 	sta (sti $argv)
 end
-
-function mupdsh # simplyHomework flow specific push
-	set -lx branch git rev-parse --abbrev-ref HEAD
-	set -lx changes git status --porcelain -uno | wc -l | tr -d '[[:space:]]'
-
-	if test $branch = "develop"
-		if $changes -gt 0
-			git stash save
-		end
-		git push
-		git checkout master
-		git merge develop
-		git push
-		mup deploy
-		git checkout develop
-		if $changes -gt 0
-			git stash apply
-			git stash drop
-		end
-		clear
-		git status
-	else
-		echo "You aren't on branch 'develop' but on branch " + $branch + "."
-	end
-
-	beep
-end
