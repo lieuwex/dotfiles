@@ -44,7 +44,7 @@ function mupd # Better and cooler mup deploys.
 end
 
 function short # The best shorter EUW
-	curl "http://www.lieuwex.me/short" -d $argv -s | pbcopy
+	curl "http://www.lieuwe.xyz/short" -d $argv -s | pbcopy
 end
 
 function silent # Silently executes a function
@@ -97,9 +97,9 @@ end
 
 function vakantie
 	if test "$argv"
-		curl -s "http://vakantie.lieuwex.me/$argv" | jq -r ".friendly"
+		curl -s "http://vakantie.lieuwe.xyz/$argv" | jq -r ".friendly"
 	else
-		curl -s "http://vakantie.lieuwex.me/wassenaar" | jq -r ".friendly"
+		curl -s "http://vakantie.lieuwe.xyz/wassenaar" | jq -r ".friendly"
 	end
 end
 
