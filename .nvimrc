@@ -1,8 +1,4 @@
 " Lieuwe Rooijakkers' vimrc
-" This uses YCM as completer per default, if this is too heavy for your system
-" you can set the following `use_ycm` variable to 0, which will enable
-" NeoComplete instead. ( Be sure to `:PlugInstall` afterwards ).
-let use_ycm = 1
 
 set shell=/bin/sh
 set laststatus=2
@@ -10,66 +6,49 @@ set autoread
 set timeoutlen=350 ttimeoutlen=25
 set updatetime=250
 
+" Airline
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_x = ""
 let g:airline_section_y = "%{airline#util#wrap(airline#parts#filetype(),0)}"
 
+" Go
 let g:go_fmt_command = "goimports"
 
-if use_ycm " YouCompleteMe
-	let g:ycm_complete_in_comments = 1
-	let g:ycm_autoclose_preview_window_after_completion = 0
-	let g:ycm_autoclose_preview_window_after_insertion = 1
-	let g:ycm_always_populate_location_list = 1
-	let g:ycm_confirm_extra_conf = 0
+" Markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_json_frontmatter = 1
 
-	let g:ycm_semantic_triggers = {'haskell' : ['.']}
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
-	function! Multiple_cursors_before()
-		let s:old_ycm_whitelist = g:ycm_filetype_whitelist
-		let g:ycm_filetype_whitelist = {}
-	endfunction
+let g:ycm_complete_in_comments = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_always_populate_location_list = 1
+let g:ycm_confirm_extra_conf = 0
 
-	function! Multiple_cursors_after()
-		let g:ycm_filetype_whitelist = s:old_ycm_whitelist
-	endfunction
-else " Neocomplete
-	let g:acp_enableAtStartup = 0
-	let g:neocomplete#enable_at_startup = 1
-	let g:neocomplete#enable_smart_case = 1
-	let g:neocomplete#sources#omni#input_patterns = {}
-	let g:neocomplete#sources#syntax#min_keyword_length = 2
-	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-	set shortmess+=c
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
-	" Called once right before you start selecting multiple cursors
-	function! Multiple_cursors_before()
-		if exists(':NeoCompleteLock') == 2
-			exe 'NeoCompleteLock'
-		endif
-	endfunction
+function! Multiple_cursors_before()
+	let s:old_ycm_whitelist = g:ycm_filetype_whitelist
+	let g:ycm_filetype_whitelist = {}
+endfunction
 
-	" Called once only when the multiple selection is canceled (default <Esc>)
-	function! Multiple_cursors_after()
-		if exists(':NeoCompleteUnlock') == 2
-			exe 'NeoCompleteUnlock'
-		endif
-	endfunction
+function! Multiple_cursors_after()
+	let g:ycm_filetype_whitelist = s:old_ycm_whitelist
+endfunction
 
-	let g:neocomplete#enable_auto_select = 0
-	let g:jedi#popup_select_first = 0
-	let g:jedi#auto_vim_configuration = 0
-	let g:jedi#completions_enabled = 0
-	let g:jedi#use_tabs_not_buffers = 1
-endif
-
+" UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:snips_author = "Lieuwe Rooijakkers"
 
+" AutoPairs
 let g:AutoPairsCenterLine = 0
 
+" OmniSharp
 let g:OmniSharp_server_type = 'v1'
 let g:OmniSharp_server_type = 'roslyn'
 
@@ -83,7 +62,7 @@ set background=dark
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
 
 " Neomake
-let blacklist = [ 'c', 'cpp', 'objc', 'objcpp' ]
+let blacklist = [ 'c', 'cpp', 'objc', 'objcpp', 'cs' ]
 autocmd BufWinEnter,FileReadPost,BufWritePost * if index(blacklist, &ft) < 0 | Neomake
 let g:neomake_mustache_tidy_maker = {
 	\ 'args': ['-e', '-q', '--gnu-emacs', 'true'],
@@ -107,31 +86,6 @@ let g:neomake_verbose = 0
 " incsearch
 let g:incsearch#emacs_like_keymap = 1
 
-" Tagbar
-let g:tagbar_left = 1
-let g:tagbar_width = 30
-let g:tagbar_type_rust = {
-	\ 'ctagstype' : 'rust',
-	\ 'kinds' : [
-		\'T:types,type definitions',
-		\'f:functions,function definitions',
-		\'g:enum,enumeration names',
-		\'s:structure names',
-		\'m:modules,module names',
-		\'c:consts,static constants',
-		\'t:traits,traits',
-		\'i:impls,trait implementations',
-	\]
-\}
-let g:tagbar_type_markdown = {
-	\'ctagstype' : 'markdown',
-	\'kinds' : [
-		\'h:Heading_L1',
-		\'i:Heading_L2',
-		\'k:Heading_L3'
-	\]
-\}
-
 call plug#begin('~/.config/nvim/plugged')
 
 " Deps
@@ -139,13 +93,13 @@ Plug 'mattn/webapi-vim'
 Plug 'tyru/open-browser.vim'
 
 " Filetypes
-Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'coffeescript'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'html'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
-Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
@@ -157,37 +111,32 @@ Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Filetype specific utils
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
+" Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
 Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'javascript.jsx', 'jsx', 'json', 'html', 'css'] }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
-" Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'html', 'stylus'] }
 
 " Themes
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'morhetz/gruvbox'
 
 " Commands
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'dahu/diffo', { 'on': 'DiffOrig' }
 Plug 'rhysd/devdocs.vim'
-Plug 'zoeesilcock/vim-caniuse'
 Plug 'mmozuras/vim-github-comment', { 'on': 'GHComment' }
 Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 
 " UI
-Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarToggle', 'TagbarOpen'] }
 Plug 'vim-airline/vim-airline'
 Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
 Plug 'airblade/vim-gitgutter'
@@ -198,13 +147,8 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-dispatch'
 
 " Autocomplete
-if use_ycm
-	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --gocode-completer' }
-else
-	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-	Plug 'Shougo/neocomplete.vim'
-endif
-Plug 'junegunn/vim-emoji', { 'for': 'gitcommit' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
 
 " Motions, operators and objects
 Plug 'tommcdo/vim-exchange'
@@ -227,16 +171,15 @@ Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-speeddating'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'regedarek/ZoomWin'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python']}
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-rsi'
 Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
 Plug 'Valloric/MatchTagAlways'
 Plug 'bogado/file-line'
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -283,7 +226,6 @@ set ignorecase
 set smartcase " Search case insensitive, unless I really want to.
 set nowrap
 set clipboard=unnamed " Use system clipboard for yanking.
-set complete+=kspell " Word completion.
 set cursorline " Highlight the current line.
 set scrolljump=5 " Jump some lines when scrolling the window down.
 set incsearch " When searched, use current search query as a query for a substitute.
@@ -292,7 +234,6 @@ set splitright " Split to the right side when using vsplit.
 set wildmenu " Autocompletion menu on ex commands.
 set history=1000
 set undolevels=1000
-set formatoptions+=j " Delete comment character when joining commented lines
 set gdefault " Use global flag for substitute by default
 
 " Hybrid line numbering.
@@ -308,8 +249,8 @@ map g/ <Plug>(easymotion-sn)\v
 iabbrev Metoer Meteor
 iabbrev ednl endl
 
-" EMOJIS 🎉
-autocmd FileType gitcommit set completefunc=emoji#complete
+" Other iabbrevs
+iabbrev /shrug/ ¯\_(ツ)_/¯
 
 " File specific settings.
 autocmd FileType coffee setlocal sw=2 ts=2
@@ -320,7 +261,8 @@ autocmd FileType python setlocal sw=4 ts=4 et
 autocmd FileType haskell setlocal sw=2 ts=2 et
 autocmd FileType html,mustache setlocal formatoptions-=t
 
-" autocmd FileType markdown,html,pandoc,text setlocal spell spelllang=en_us,nl_nl " Set spellchecking on for text files.
+set spelllang=en_us,nl
+autocmd FileType markdown,html,mustache,gitcommit setlocal spell " Set spellchecking on for text files.
 autocmd BufRead,BufNewFile *.html setlocal wrap " Wrap HTML files.
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " CoffeeScript folding.
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
@@ -334,12 +276,10 @@ vnoremap > >gv
 xmap ' S'
 xmap " S"
 
+" FZF mappings
 nnoremap <silent> <Leader>f :Ag<Cr>
 nnoremap <silent> <Leader>F :Ag <C-R><C-W><CR>
-nnoremap <silent> <Leader>t :Tags<Cr>
-nnoremap <silent> <Leader><Leader>t :TagbarToggle<Cr>
 nnoremap <silent> <Leader>g :MundoToggle<cr>
-nnoremap <Leader>w :up<cr>
 nnoremap <silent> <C-p> :Files<Cr>
 
 function! OpenGHIssue(word)
@@ -361,38 +301,51 @@ endfunction
 vnoremap <silent> <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
 
 nnoremap <Leader>y mY^y$`Y
-nnoremap <Leader>v ^v$h
+nnoremap <Leader>v ^vg_
 nnoremap Y y$
 
+" ycm mappings
 nnoremap <Leader>d :YcmCompleter GoTo<Cr>
+nnoremap <Leader>c :YcmCompleter FixIt<Cr>
 
+" move mappings
 nnoremap <BS> <C-o>
+
+" save (and quit) mappings
 nnoremap <Space>w :up<Cr>
 nnoremap <Space>wa :wa<Cr>
-
 nnoremap <Space>wq ZZ
 nnoremap <Space>wqa :wqa<Cr>
+
+" quit mappings
 nnoremap <Space>q :q<Cr>
-nnoremap <Space>qq :q!<Cr>
 nnoremap <Space>qa :qa<Cr>
 nnoremap <Space>qaa :qa!<Cr>
 
-nnoremap <Space>e :e<Cr>
-nnoremap <Space>ee :e!<Cr>
+" replace mappings mappings
+noremap <Space>sa :%s/\v
+noremap <Space>ss :.s/\v
+noremap <Space>sa/ :%s//
+noremap <Space>ss/ :.s//
 
-nnoremap <Space>sa :%s/\v
-nnoremap <Space>ss :.s/\v
-nnoremap <Space>sa/ :%s//
-nnoremap <Space>ss/ :.s//
-
-nnoremap <Cr> :
-
+" :setf mappings
 nnoremap <Leader>sf :setf 
 nnoremap <Leader>sfmu :setf mustache<cr>
 nnoremap <Leader>sfjs :setf javascript<cr>
+nnoremap <Leader>sfjson :setf json<cr>
 
+" devdocs mappings
 nmap K <Plug>(devdocs-under-cursor)
 nnoremap <Leader>p :DevDocs 
+
+" map return to :
+function! MapReturn()
+	if &ft != 'qf' && &ft != 'netrw'
+		nnoremap <buffer> <Cr> :
+		xnoremap <buffer> <Cr> :
+	endif
+endfunction
+autocmd FileType * call MapReturn()
 
 " Fix filetypes
 function! SetMustache()
@@ -413,8 +366,6 @@ nnoremap ~ Q
 
 " Commands
 command UglifyJS norm mU:%!uglifyjs | pbcopy<cr>u`U
-command Zen Goyo | Limelight | set nolist
-command Unzen Goyo | Limelight! | set list
 command Path echo expand('%:p')
 command Sudowrite w !sudo tee > /dev/null %
 
@@ -423,6 +374,7 @@ augroup HighlightRed
 	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW\|BUG', -1)
 augroup END
 
+" * and # mappings
 nnoremap * *N
 nnoremap # #N
 nnoremap g* g*N
@@ -438,3 +390,13 @@ function! s:VSetSearch()
 endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
+
+" FixWhitespace
+function! s:FixWhitespace(line1,line2)
+	let l:save_cursor = getpos(".")
+	silent! execute ':' . a:line1 . ',' . a:line2 . 's/\\\@<!\s\+$//'
+	call setpos('.', l:save_cursor)
+endfunction
+
+" Run :FixWhitespace to remove end of line white space
+command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
