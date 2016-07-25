@@ -20,6 +20,7 @@ alias remake 'make remake'
 alias vimswap 'nvim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'s/\/\./\//\')'
 alias less 'less -iR'
 alias cdd 'cd ~/Downloads'
+alias js 'n_'
 
 function cdm
 	if test -z "$argv"
