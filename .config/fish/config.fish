@@ -4,6 +4,8 @@ set MANPATH
 set MANPATH $NPM_PACKAGES/share/man /usr/local/opt/coreutils/libexec/gnuman (manpath)
 set PATH $GOPATH/bin $NPM_PACKAGES/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
 set EDITOR nvim
+set -x PAGER less
+set -x GO15VENDOREXPERIMENT 1
 
 alias vim nvim
 
