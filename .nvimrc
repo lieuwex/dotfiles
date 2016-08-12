@@ -253,12 +253,6 @@ iabbrev ednl endl
 iabbrev /shrug/ ¯\_(ツ)_/¯
 
 " File specific settings.
-autocmd FileType coffee setlocal sw=2 ts=2
-autocmd FileType stylus setlocal sw=2 ts=2
-autocmd FileType ls setlocal sw=2 ts=2
-autocmd FileType ruby setlocal sw=2 ts=2 et
-autocmd FileType python setlocal sw=4 ts=4 et
-autocmd FileType haskell setlocal sw=2 ts=2 et
 autocmd FileType html,mustache setlocal formatoptions-=t
 
 set spelllang=en_us,nl
