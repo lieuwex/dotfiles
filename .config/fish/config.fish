@@ -8,6 +8,7 @@ set -x PAGER less
 set -x GO15VENDOREXPERIMENT 1
 
 alias vim nvim
+alias view 'nvim -R'
 
 alias l 'ls -lAh'
 alias ll 'ls -lAhtr'
@@ -20,6 +21,7 @@ alias vimswap 'nvim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'
 alias less 'less -iR'
 alias cdd 'cd ~/Downloads'
 alias js 'n_'
+alias gdb 'gdb -q'
 
 # set tabwidth to 4
 tabs -4
