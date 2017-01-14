@@ -1,9 +1,6 @@
-function fish_prompt --description "Write out the prompt"
-	# Just calculate these once, to save a few cycles when displaying the prompt
-	if not set -q __fish_prompt_normal
-		set -g __fish_prompt_normal (set_color normal)
-	end
+set -g __fish_prompt_normal (set_color normal)
 
+function fish_prompt --description "Write out the prompt"
 	switch $USER
 		case root
 			if not set -q __fish_prompt_cwd
