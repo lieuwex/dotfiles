@@ -10,7 +10,7 @@
 [credential]
 	helper = osxkeychain
 [diff]
-	algorithm = patience
+	algorithm = minimal
 [merge]
 	conflictstyle = diff3
 	tool = fugitive
@@ -31,3 +31,15 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[core]
+	# pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+	pager = diff-highlight | less --tabs=1,5 -R
+[interactive]
+	diffFilter = diff-highlight
+[grep]
+	patternType = perl
+	fallbackToNoIndex = true
+[tag]
+	sort = v:refname
+[alias]
+	up = pull --rebase --autostash
