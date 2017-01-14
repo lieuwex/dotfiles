@@ -13,7 +13,6 @@ alias l 'ls -lAh'
 alias ll 'ls -lAhtr'
 alias cd.. 'cd ..'
 alias diff 'git diff'
-alias beep 'tput bel'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
 alias remake 'make remake'
@@ -40,7 +39,7 @@ end
 
 function mupd # Better and cooler mup deploys.
 	mup deploy
-	beep
+	tput bel
 end
 
 function short # The best shorter EUW
@@ -164,7 +163,7 @@ end
 
 function gp # Better and cooler git pushes.
 	git push $argv
-	beep
+	tput bel
 end
 
 function sti
