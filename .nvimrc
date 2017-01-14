@@ -205,13 +205,13 @@ set undodir=~/.vim/undos
 
 " List chars
 set list
-set listchars=""                  " Reset the listchars
-set listchars=tab:\|\             " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:•            " show trailing spaces as dots
-set listchars+=extends:>          " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
-set listchars+=precedes:<         " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the left of the screen
+set listchars=""
+set listchars=tab:\|\ 
+set listchars+=trail:•
+set listchars+=extends:>
+
+set listchars+=precedes:<
+
 highlight SpecialKey ctermfg=237
 
 " Remember last line location.
@@ -385,12 +385,16 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 
-" FixWhitespace
+" Extra whitespace
+highlight default ExtraWhitespace ctermbg=darkred guibg=#382424
+autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=red guibg=red
+autocmd BufRead,BufNew * match ExtraWhitespace /\\\@<![\u3000[:space:]]\+\%#\@<!$/
+match ExtraWhitespace /\\\@<![\u3000[:space:]]\+\%#\@<!$/
+
 function! s:FixWhitespace(line1,line2)
 	let l:save_cursor = getpos(".")
 	silent! execute ':' . a:line1 . ',' . a:line2 . 's/\\\@<!\s\+$//'
 	call setpos('.', l:save_cursor)
 endfunction
 
-" Run :FixWhitespace to remove end of line white space
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
