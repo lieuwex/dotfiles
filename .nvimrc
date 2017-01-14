@@ -360,7 +360,7 @@ xnoremap Q ~
 nnoremap ~ Q
 
 " Commands
-command UglifyJS norm mU:%!uglifyjs | pbcopy<cr>u`U
+command UglifyJS norm mU:%!buble | uglifyjs | pbcopy<cr>u`U
 command Path echo expand('%:p')
 command Sudowrite w !sudo tee > /dev/null %
 
