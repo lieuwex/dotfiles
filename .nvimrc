@@ -313,6 +313,7 @@ nnoremap <Space>wqa :wqa<Cr>
 
 " quit mappings
 nnoremap <Space>q :q<Cr>
+nnoremap <Space>qq :q!<Cr>
 nnoremap <Space>qa :qa<Cr>
 nnoremap <Space>qaa :qa!<Cr>
 
