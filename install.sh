@@ -45,9 +45,9 @@ brew install gnu-time
 brew install gpm
 brew install grep
 
-brew install htop-osx
-sudo chown root:wheel /usr/local/Cellar/htop-osx/*/bin/htop
-sudo chmod u+s /usr/local/Cellar/htop-osx/*/bin/htop
+brew install htop
+sudo chown root:wheel /usr/local/Cellar/htop/*/bin/htop
+sudo chmod u+s /usr/local/Cellar/htop/*/bin/htop
 
 brew install hub
 brew install imagemagick

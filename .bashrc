@@ -8,3 +8,7 @@ export PATH
 alias git=hub
 export EDITOR='/usr/local/bin/vim'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+source ~/.xsh
+

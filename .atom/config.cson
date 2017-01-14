@@ -1,47 +1,53 @@
 "*":
-  editor:
-    invisibles: {}
-    tabLength: 4
-    showIndentGuide: true
-    showInvisibles: true
-    softTabs: false
-    scrollPastEnd: true
-    fontSize: 15
+  "atom-beautify":
+    _analyticsUserId: "187bb01e-8a2f-4766-8a65-13feeb2b487a"
+  "atom-spotify":
+    displayOnLeftSide: false
+  "atom-ternjs": {}
+  "autocomplete-plus": {}
+  "autocomplete-ruby": {}
   core:
+    disabledPackages: [
+      "terminal-panel"
+      "wrap-guide"
+    ]
+    excludeVcsIgnoredPaths: false
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
-    disabledPackages: [
-      "terminal-panel"
-    ]
-    excludeVcsIgnoredPaths: false
+  "easy-motion": {}
+  editor:
+    fontSize: 12
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    softTabs: false
+    tabLength: 4
   "exception-reporting":
     userId: "9cde2665-488e-0b94-858e-3a3318a89833"
-  welcome:
-    showOnStartup: false
-  linter:
-    statusBar: "Show all errors"
-  "travis-ci-status": {}
   "highlight-line":
     hideHighlightOnSelect: true
-  "autocomplete-plus": {}
-  "autocomplete-ruby": {}
+  linter:
+    statusBar: "Show all errors"
   "linter-csslint": {}
+  "linter-golinter": {}
   "linter-jshint": {}
-  "atom-spotify":
-    displayOnLeftSide: false
-  "atom-beautify":
-    _analyticsUserId: "187bb01e-8a2f-4766-8a65-13feeb2b487a"
-  "easy-motion": {}
+  minimap:
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+  pigments: {}
   "terminal-panel": {}
-  "you-complete-me":
-    globalExtraConfig: ".ycm_extra_conf.py"
-  "atom-ternjs": {}
-  minimap: {}
+  "travis-ci-status": {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
-  pigments: {}
-  "linter-golinter": {}
   "vim-mode-plus": {}
+  welcome:
+    showOnStartup: false
+  "you-complete-me":
+    globalExtraConfig: ".ycm_extra_conf.py"

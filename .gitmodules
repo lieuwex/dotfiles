@@ -1,6 +1,3 @@
-[submodule "Desktop/simply/meteor-material-ui/material-ui"]
-	path = Desktop/simply/meteor-material-ui/material-ui
-	url = https://github.com/callemall/material-ui.git
 [submodule ".tmux/plugins/continuum"]
 	path = .tmux/plugins/continuum
 	url = git@github.com:tmux-plugins/tmux-continuum.git
