@@ -108,7 +108,7 @@ end
 
 function weather
 	set -l url "http://www.accuweather.com/en/nl/wassenaar/251522/weather-forecast/251522"
-	curl -sL $url | awk -F"['\"]" '/acm_RecentLocationsCarousel\.push/{print $2": "$16", "$12"°C ( Feels like "$14"°C )" }'| head -1
+	curl -sL $url | awk -F"['\"]" '/acm_RecentLocationsCarousel\.push/{print $16", "$12"°C (Feels like "$14"°C)" }'| head -1
 end
 
 function fixairplay # For when airplay sucks ass again.
