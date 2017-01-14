@@ -149,7 +149,9 @@ alias gfa 'git fetch --all'
 alias gu 'git up'
 alias gc 'git commit'
 alias gca 'gc --amend'
+alias gcad 'gca --date (date -R)'
 alias gcan 'gc --amend --no-edit'
+alias gcand 'gcan --date (date -R)'
 
 function fch
 	git log --color=always --pretty=oneline --abbrev-commit --reverse | fzf-tmux --tac +s +m -e --ansi --reverse | awk '{ print $1 }'
