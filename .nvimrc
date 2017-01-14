@@ -363,6 +363,7 @@ nnoremap ~ Q
 command UglifyJS norm mU:%!buble | uglifyjs | pbcopy<cr>u`U
 command Path echo expand('%:p')
 command Sudowrite w !sudo tee > /dev/null %
+command Time exec 'norm a' . system('date +%H:%M')
 
 augroup HighlightRed
 	autocmd!
