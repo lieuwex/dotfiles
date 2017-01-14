@@ -52,8 +52,8 @@ function silent # Silently executes a function
 	eval $argv > /dev/null 2>&1
 end
 
-function ip # Prints current IP using Tom Smeding's website.
-	curl -s "http://tomsmeding.nl/ip.php"
+function ip # Prints current IP using httpbin.
+	curl -s "icanhazip.com"
 end
 
 function serve # Serves the current folder on the given port (defualt 3000) using Python's SimpleHTTPServer, silently.
