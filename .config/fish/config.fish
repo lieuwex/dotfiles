@@ -56,16 +56,6 @@ function ip # Prints current IP using httpbin.
 	curl -s "icanhazip.com"
 end
 
-function serve # Serves the current folder on the given port (defualt 3000) using Python's SimpleHTTPServer, silently.
-	if test "$argv"
-		lopen $argv
-		python -m SimpleHTTPServer $argv > /dev/null 2>&1
-	else
-		lopen 3000
-		python -m SimpleHTTPServer 3000 > /dev/null 2>&1
-	end
-end
-
 function updateall
 	# Trigger sudo for later
 	sudo -v
