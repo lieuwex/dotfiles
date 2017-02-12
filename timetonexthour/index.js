@@ -12,6 +12,7 @@ if (day === 0 || day === 6) {
 var path = require('path');
 var fs = require('fs');
 var Magister = require('magister.js').Magister;
+var retry = require('@lieuwex/retry');
 
 var cacheFilePath = path.join(__dirname, '/cache.json');
 
@@ -64,11 +65,15 @@ function toJson (appointment) {
 if (old != null && new Date().getTime() - old.time <= MAX_CACHE_TIME) {
 	printTime(old.appointments);
 } else {
-	new Magister({
-		school: '',
-		username: '',
-		password: '',
-	}).ready(function (e) {
+	retry(function (cb) {
+		new Magister({
+			school: '',
+			username: '',
+			password: '',
+		}).ready(function (e) {
+			cb(e, this)
+		});
+	}, function (e, m, tryCount) {
 		const save = obj => fs.writeFileSync(cacheFilePath, JSON.stringify(obj));
 
 		if (e != null) {
@@ -76,9 +81,10 @@ if (old != null && new Date().getTime() - old.time <= MAX_CACHE_TIME) {
 				blocked: true,
 				err: e.toString(),
 				time: new Date().getTime(),
+				tryCount,
 			});
 		} else {
-			this.appointments(new Date(), function (e, r) {
+			m.appointments(new Date(), function (e, r) {
 				if (e == null) {
 					r = r.map(toJson);
 					printTime(r);
@@ -90,8 +96,11 @@ if (old != null && new Date().getTime() - old.time <= MAX_CACHE_TIME) {
 				save({
 					appointments: r || [],
 					time: new Date().getTime(),
+					tryCount,
 				});
 			});
 		}
+	}, {
+		retryCount: 7,
 	});
 }

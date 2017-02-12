@@ -9,6 +9,7 @@
   "author": "Lieuwe Rooijakkers <lieuwerooijakkers@gmail.com> (http://www.lieuwe.xyz/)",
   "license": "ISC",
   "dependencies": {
+    "@lieuwex/retry": "^0.1.0",
     "magister.js": "^1.16.0"
   }
 }
