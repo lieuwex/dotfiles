@@ -6,6 +6,8 @@ set autoread
 set timeoutlen=350 ttimeoutlen=25
 set updatetime=250
 
+set mouse=a
+
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
@@ -120,8 +122,9 @@ Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 " Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
 Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'javascript.jsx', 'jsx', 'json', 'html', 'css'] }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
+" Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
+Plug 'Valloric/MatchTagAlways'
 
 " Themes
 Plug 'vim-airline/vim-airline-themes'
@@ -144,7 +147,6 @@ Plug 'tpope/vim-fugitive'
 
 " Build
 Plug 'benekastah/neomake'
-Plug 'tpope/vim-dispatch'
 
 " Autocomplete
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
@@ -175,9 +177,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-rsi'
-Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
-Plug 'Valloric/MatchTagAlways'
 Plug 'bogado/file-line'
 Plug 'wakatime/vim-wakatime'
 
@@ -317,11 +316,14 @@ nnoremap <Space>qq :q!<Cr>
 nnoremap <Space>qa :qa<Cr>
 nnoremap <Space>qaa :qa!<Cr>
 
-" replace mappings mappings
+" replace mappings
 noremap <Space>sa :%s/\v
 noremap <Space>ss :.s/\v
 noremap <Space>sa/ :%s//
 noremap <Space>ss/ :.s//
+
+" yank mappings
+nnoremap <Space>ya :%y<Cr>
 
 " :setf mappings
 nnoremap <Leader>sf :setf 
@@ -352,7 +354,8 @@ augroup MustacheOpen
 	autocmd!
 	autocmd FileType html :call SetMustache()
 augroup END
-autocmd BufRead,BufNewFile *.script setfiletype applescript
+autocmd BufRead,BufNewFile *.script setlocal filetype=applescript
+autocmd BufRead,BufNewFile *.hbs setlocal filetype=mustache
 
 " Swap Q and ~
 nnoremap Q ~
@@ -360,14 +363,14 @@ xnoremap Q ~
 nnoremap ~ Q
 
 " Commands
-command UglifyJS norm mU:%!buble | uglifyjs | pbcopy<cr>u`U
+command UglifyJS silent write !buble | uglifyjs | pbcopy
 command Path echo expand('%:p')
-command Sudowrite w !sudo tee > /dev/null %
+command Sudowrite write !sudo tee > /dev/null %
 command Time exec 'norm a' . system('date +%H:%M')
 
 augroup HighlightRed
 	autocmd!
-	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW\|BUG', -1)
+	autocmd WinEnter,VimEnter * :silent! call matchadd('WarningMsg', 'TODO\|FIXME\|OPTIMIZE\|HACK\|REVIEW\|BUG\|!', -1)
 augroup END
 
 " * and # mappings
