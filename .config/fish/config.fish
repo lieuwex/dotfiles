@@ -88,6 +88,13 @@ function updateall
 
 	fish_update_completions
 
+	# This should actually be done somewhere else
+	rm -rf ~/.local/share/khal
+	set -l file $TMPDIR/(date +%s).ics
+	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/zalen-inf-1e-jaar-voorjaar-17-18.xls \
+		| ~/parserooster/index.js 'Rooster Informatica 1e jaar voorjaar' >$file
+	khal import --batch $file
+
 	# Let's leave sudo behind nicely.
 	sudo -k
 end
