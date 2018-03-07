@@ -74,6 +74,8 @@ function updateall
 	yes | brew cu -af
 	brew cask cleanup
 
+	~/.tmux/plugins/tpm/bin/update_plugins all
+
 	gem update --system
 	gem update
 	gem cleanup
