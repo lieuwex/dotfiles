@@ -64,27 +64,9 @@ set background=dark
 " MatchTagAlways
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
 
-" Neomake
-let blacklist = [ 'c', 'cpp', 'objc', 'objcpp', 'cs' ]
-autocmd BufWinEnter,FileReadPost,BufWritePost * if index(blacklist, &ft) < 0 | Neomake
-let g:neomake_mustache_tidy_maker = {
-	\ 'args': ['-e', '-q', '--gnu-emacs', 'true'],
-	\ 'errorformat': '%A%f:%l:%c: Warning: %m',
-	\ }
-let g:neomake_mustache_enabled_makers = ['tidy']
-let g:neomake_cs_enabled_makers = ['syntax', 'semantic', 'issues', 'codecheck']
-let g:neomake_ruby_enabled_makers = ['rubocop']
-let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
-let g:neomake_python_python_exe = '/usr/local/bin/python3'
-let g:neomake_error_sign = {
-	\ 'text': 'E>',
-	\ 'texthl': 'ErrorMsg',
-	\ }
-let g:neomake_warning_sign = {
-	\ 'text': 'W>',
-	\ 'texthl': 'WarningMsg',
-	\ }
-let g:neomake_verbose = 0
+" ALE
+let g:ale_sign_error = 'W>'
+let g:ale_sign_warning = 'E>'
 
 " incsearch
 let g:incsearch#emacs_like_keymap = 1
@@ -146,8 +128,8 @@ Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" Build
-Plug 'benekastah/neomake'
+" Linting
+Plug 'w0rp/ale'
 
 " Autocomplete
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
