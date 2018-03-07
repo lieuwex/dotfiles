@@ -43,3 +43,9 @@
 	sort = v:refname
 [alias]
 	up = pull --rebase --autostash
+	conflicts = diff --name-only --diff-filter=U
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

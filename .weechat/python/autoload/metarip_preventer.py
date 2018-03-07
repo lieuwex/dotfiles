@@ -42,13 +42,14 @@ originalrip = None
 currentrip = None
 ripmessage = None
 
+
 def on_buffer_input(data, modifier, modifier_data, message):
     global currentrip, ripmessage, originalrip
 
     def fixrip(wrongrip, msg=message):
-        return msg.replace(wrongrip, "rip")
+        return re.sub(r"\b%s\b" % wrongrip, "rip", msg)
 
-    if message.find("/") == 0: # Leave comments alone.
+    if message.find("/") == 0:  # Leave commands alone.
         return message
 
     if currentrip is not None:
@@ -57,6 +58,7 @@ def on_buffer_input(data, modifier, modifier_data, message):
             if len(splitted) > 0:
                 currentrip = '\n'.join(splitted[1:])
                 return ''
+
         elif currentrip == message:
             res = fixrip(originalrip, ripmessage)
 
@@ -65,8 +67,9 @@ def on_buffer_input(data, modifier, modifier_data, message):
             currentrip = None
 
             return res
+
         else:
-            res = '\n'.join([ ripmessage, message ])
+            res = '\n'.join([ripmessage, message])
 
             originalrip = None
             ripmessage = None
@@ -88,5 +91,6 @@ def on_buffer_input(data, modifier, modifier_data, message):
             return fixrip(word)
 
     return message
+
 
 w.hook_modifier('input_text_for_buffer', 'on_buffer_input', '')

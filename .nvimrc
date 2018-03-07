@@ -17,6 +17,7 @@ let g:airline_section_y = "%{airline#util#wrap(airline#parts#filetype(),0)}"
 
 " Go
 let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1

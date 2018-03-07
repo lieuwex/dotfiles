@@ -12,6 +12,7 @@
       "wrap-guide"
     ]
     excludeVcsIgnoredPaths: false
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"

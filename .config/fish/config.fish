@@ -1,11 +1,14 @@
 set NPM_PACKAGES ~/.npm-packages
 set NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
+set -x GOPATH ~/go/
 set MANPATH
 set MANPATH $NPM_PACKAGES/share/man /usr/local/opt/coreutils/libexec/gnuman (manpath)
 set PATH $GOPATH/bin $NPM_PACKAGES/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
-set EDITOR nvim
+
+set -x EDITOR nvim
 set -x PAGER less
-set -x GO15VENDOREXPERIMENT 1
+set -x LANG en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
 
 alias vim nvim
 alias view 'nvim -R'
@@ -17,11 +20,11 @@ alias diff 'git diff'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
 alias remake 'make remake'
-alias vimswap 'nvim (find . -type f -name ".*.swp" | sed \'s/\.swp$//\' | sed \'s/\/\./\//\')'
 alias less 'less -iR'
 alias cdd 'cd ~/Downloads'
 alias js 'n_'
 alias gdb 'gdb -q'
+alias make 'make -j4'
 
 # set tabwidth to 4
 tabs -4
@@ -66,15 +69,16 @@ function updateall
 	npm update -g
 
 	brew update
-	brew upgrade --all
+	brew upgrade
 	brew cleanup
+	yes | brew cu -af
 	brew cask cleanup
 
 	gem update --system
 	gem update
 	gem cleanup
 
-	for pip in pip pip3
+	for pip in pip2 pip3
 		for package in (eval $pip list -o | awk '{print $1}')
 			eval $pip install --upgrade $package
 		end
@@ -97,8 +101,7 @@ function vakantie
 end
 
 function weather
-	set -l url "http://www.accuweather.com/en/nl/wassenaar/251522/weather-forecast/251522"
-	curl -sL $url | awk -F"['\"]" '/acm_RecentLocationsCarousel\.push/{print $16", "$12"°C (Feels like "$14"°C)" }'| head -1
+	curl wttr.in/wassenaar
 end
 
 function fixairplay # For when airplay sucks ass again.
@@ -128,7 +131,6 @@ alias sta 'st apply'
 alias stls 'st list'
 alias ga 'git add'
 alias gap 'git add -p'
-# alias gr 'git reset head --'
 alias gr 'git reset'
 alias gs 'git show'
 alias gss 'git show (fch)'
