@@ -71,6 +71,9 @@ let g:ale_sign_warning = 'E>'
 " incsearch
 let g:incsearch#emacs_like_keymap = 1
 
+" unimpaired
+let g:nremap = { ']t': '', '[t': '' }
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Deps
@@ -267,8 +270,8 @@ nnoremap <silent> <Leader>gi :exec 'call OpenGHIssue(' expand('<cword>') ')'<CR>
 " Tab swag.
 nnoremap <silent> tt :tabnew<cr>
 nnoremap <silent> tc :tabclose<cr>
-au VimEnter * nnoremap <silent> [t :tabprevious<cr>
-au VimEnter * nnoremap <silent> ]t :tabnext<cr>
+nnoremap <silent> [t :tabprevious<cr>
+nnoremap <silent> ]t :tabnext<cr>
 
 function! ResizeToSelection() range
 	execute "resize " . (a:lastline - a:firstline + 1)
