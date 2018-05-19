@@ -1,6 +1,6 @@
 " Lieuwe Rooijakkers' vimrc
 
-set shell=/bin/sh
+set shell=/bin/bash
 set laststatus=2
 set autoread
 set timeoutlen=350 ttimeoutlen=25
@@ -85,7 +85,7 @@ Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'coffe
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'html'] }
 Plug 'gkz/vim-ls', { 'for': 'ls' }
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
@@ -136,7 +136,7 @@ Plug 'w0rp/ale'
 
 " Autocomplete
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer' }
 
 " Motions, operators and objects
 Plug 'tommcdo/vim-exchange'
@@ -186,7 +186,7 @@ nnoremap <silent> <C-l> :noh<CR><C-l>
 
 " Persistent undo
 set undofile
-set undodir=~/.vim/undos
+set undodir=~/.config/nvim/undos
 
 " List chars
 set list
