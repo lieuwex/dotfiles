@@ -60,24 +60,23 @@ function ip # Prints current IP using httpbin.
 end
 
 function updateall
-	# Trigger sudo for later
+	# Stuff using sudo
 	sudo -v
 	echo "😗 🎶"
-
 	sudo softwareupdate -i -a
+	nvidia-update
+	sudo gem update --system
+	sudo gem update
+	yes | brew cu -af
+	~/.tmux/plugins/tpm/bin/update_plugins all
 
 	npm update -g
 
 	brew update
 	brew upgrade
 	brew cleanup
-	yes | brew cu -af
-	brew cask cleanup
+	brew bundle dump -f --file=~/Brewfile
 
-	~/.tmux/plugins/tpm/bin/update_plugins all
-
-	gem update --system
-	gem update
 	gem cleanup
 
 	for pip in pip2 pip3
@@ -93,8 +92,8 @@ function updateall
 	# This should actually be done somewhere else
 	rm -rf ~/.local/share/khal
 	set -l file $TMPDIR/(date +%s).ics
-	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/zalen-inf-1e-jaar-voorjaar-17-18.xls \
-		| ~/parserooster/index.js 'Rooster Informatica 1e jaar voorjaar' >$file
+	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/18-19/zalen-inf-2e-jaar-najaar-18-19.xls \
+		| ~/studie/utils/parserooster/index.js 'Rooster Informatica 2e jaar najaar' >$file
 	khal import --batch $file
 
 	# Let's leave sudo behind nicely.
