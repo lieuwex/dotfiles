@@ -6,6 +6,9 @@ set autoread
 set timeoutlen=350 ttimeoutlen=25
 set updatetime=250
 
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 set mouse=a
 
 " Airline
@@ -102,7 +105,6 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Filetype specific utils
-Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
@@ -150,10 +152,6 @@ Plug 'tpope/vim-unimpaired'
 " FZF
 Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " The rest
 Plug 'easymotion/vim-easymotion'
