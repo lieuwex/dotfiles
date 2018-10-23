@@ -65,8 +65,8 @@ set background=dark
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
 
 " ALE
-let g:ale_sign_error = 'W>'
-let g:ale_sign_warning = 'E>'
+let g:ale_sign_error = 'E>'
+let g:ale_sign_warning = 'W>'
 
 " incsearch
 let g:incsearch#emacs_like_keymap = 1
