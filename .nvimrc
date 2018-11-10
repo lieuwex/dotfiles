@@ -11,13 +11,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 set mouse=a
 
-" Airline
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_x = ""
-let g:airline_section_y = "%{airline#util#wrap(airline#parts#filetype(),0)}"
-
 " Go
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
@@ -115,7 +108,6 @@ Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
 Plug 'Valloric/MatchTagAlways'
 
 " Themes
-Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
 
@@ -128,7 +120,8 @@ Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 
 " UI
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'mgee/lightline-bufferline'
 Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -203,7 +196,6 @@ if has("autocmd")
 endif
 
 " Options
-set noshowmode " We have airline, which already shows the current mode.
 set hidden " Hidden buffers swag.
 set ignorecase
 set smartcase " Search case insensitive, unless I really want to.
@@ -387,3 +379,18 @@ function! s:FixWhitespace(line1,line2)
 endfunction
 
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+
+" lightline stuff
+set noshowmode
+set showtabline=2
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+
+let g:lightline                  = {}
+
+let g:lightline.tabline          = {'left': [['buffers']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+let g:lightline.colorscheme = 'seoul256'
