@@ -121,7 +121,7 @@ Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 
 " UI
 Plug 'itchyny/lightline.vim'
-Plug 'mgee/lightline-bufferline'
+Plug 'ap/vim-buftabline'
 Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -381,16 +381,8 @@ endfunction
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " lightline stuff
+let g:lightline.colorscheme = 'seoul256'
+
+" buftabline stuff
 set noshowmode
 set showtabline=2
-let g:lightline#bufferline#show_number  = 1
-let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#unnamed      = '[No Name]'
-
-let g:lightline                  = {}
-
-let g:lightline.tabline          = {'left': [['buffers']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-
-let g:lightline.colorscheme = 'seoul256'
