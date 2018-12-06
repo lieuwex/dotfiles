@@ -22,6 +22,7 @@ let g:vim_markdown_json_frontmatter = 1
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+let g:ycm_extra_conf_vim_data   = ['&filetype']
 
 let g:ycm_complete_in_comments = 1
 let g:ycm_autoclose_preview_window_after_completion = 0
@@ -55,12 +56,11 @@ let g:OmniSharp_server_type = 'roslyn'
 let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
 
-set background=dark
-
 " MatchTagAlways
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
 
 " ALE
+let g:ale_completion_enabled = 1
 let g:ale_sign_error = 'E>'
 let g:ale_sign_warning = 'W>'
 
@@ -69,6 +69,12 @@ let g:incsearch#emacs_like_keymap = 1
 
 " unimpaired
 let g:nremap = { ']t': '', '[t': '' }
+
+" elm
+let g:elm_format_autosave = 0
+
+" rainbow_pairs
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -96,8 +102,12 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'mustache' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 
 " Filetype specific utils
+"Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
@@ -109,12 +119,13 @@ Plug 'Valloric/MatchTagAlways'
 
 " Themes
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
 
 " Commands
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 Plug 'dahu/diffo', { 'on': 'DiffOrig' }
-Plug 'rhysd/devdocs.vim'
 Plug 'mmozuras/vim-github-comment', { 'on': 'GHComment' }
 Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
@@ -125,13 +136,15 @@ Plug 'ap/vim-buftabline'
 Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 " Linting
 Plug 'w0rp/ale'
 
 " Autocomplete
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 " Motions, operators and objects
 Plug 'tommcdo/vim-exchange'
@@ -143,8 +156,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 
 " FZF
-Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+
+" Snippets
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 " The rest
 Plug 'easymotion/vim-easymotion'
@@ -155,7 +172,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-rsi'
 Plug 'bogado/file-line'
-Plug 'wakatime/vim-wakatime'
+Plug 'metakirby5/codi.vim'
 
 call plug#end()
 
@@ -169,8 +186,13 @@ set shiftwidth=4
 set textwidth=80
 
 " COLORS.
+let g:seoul256_background = 235
+set background=dark
 syntax on
 colorscheme Tomorrow-Night
+"colorscheme base16-tomorrow-night
+"colorscheme gruvbox
+"colorscheme seoul256
 
 " Clear search query results with ctrl+l.
 nnoremap <silent> <C-l> :noh<CR><C-l>
@@ -333,6 +355,11 @@ augroup END
 autocmd BufRead,BufNewFile *.script setlocal filetype=applescript
 autocmd BufRead,BufNewFile *.hbs setlocal filetype=mustache
 
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
+
 " Swap Q and ~
 nnoremap Q ~
 xnoremap Q ~
@@ -381,7 +408,7 @@ endfunction
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " lightline stuff
-let g:lightline.colorscheme = 'seoul256'
+"let g:lightline.colorscheme = 'seoul256'
 
 " buftabline stuff
 set noshowmode
