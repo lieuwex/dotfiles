@@ -409,6 +409,15 @@ command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " lightline stuff
 "let g:lightline.colorscheme = 'seoul256'
+let g:lightline = {
+		\ 'component_function': {
+			\ 'filename': 'LightlineFilename',
+		\ },
+	\ }
+
+function! LightlineFilename()
+	return expand('%') !=# '' ? expand('%') : '[No Name]'
+endfunction
 
 " buftabline stuff
 set noshowmode
