@@ -342,19 +342,7 @@ function! MapReturn()
 endfunction
 autocmd FileType * call MapReturn()
 
-" Fix filetypes
-function! SetMustache()
-	if expand('%:p') =~ "/Users/lieuwe/Desktop/simply/simplyHomework"
-		setlocal filetype=mustache
-	endif
-endfunction
-augroup MustacheOpen
-	autocmd!
-	autocmd FileType html :call SetMustache()
-augroup END
-autocmd BufRead,BufNewFile *.script setlocal filetype=applescript
-autocmd BufRead,BufNewFile *.hbs setlocal filetype=mustache
-
+" rainbow parens for lisps
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
