@@ -1,0 +1,6 @@
+.weechat/plugins.conf
+.weechat/weechat.conf
+.weechat/irc.conf
+.weechat/jabber.conf
+.weechat/relay.conf
+.weechat/ssl/
