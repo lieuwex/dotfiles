@@ -65,9 +65,10 @@ function updateall
 	sudo -v
 	echo "😗 🎶"
 	sudo softwareupdate -i -a
-	nvidia-update
+	#nvidia-update
 	sudo gem update --system
 	sudo gem update
+	sudo gem cleanup
 	yes | brew cu -af
 	~/.tmux/plugins/tpm/bin/update_plugins all
 
@@ -75,10 +76,8 @@ function updateall
 
 	brew update
 	brew upgrade
-	brew cleanup
+	brew cleanup -s
 	brew bundle dump -f --file=~/Brewfile
-
-	gem cleanup
 
 	for pip in pip2 pip3
 		for package in (eval $pip list -o | awk '{print $1}')
@@ -93,8 +92,13 @@ function updateall
 	# This should actually be done somewhere else
 	rm -rf ~/.local/share/khal
 	set -l file $TMPDIR/(date +%s).ics
+
 	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/18-19/zalen-inf-2e-jaar-najaar-18-19.xls \
 		| ~/studie/utils/parserooster/index.js 'Rooster Informatica 2e jaar najaar' >$file
+	khal import --batch $file
+
+	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/18-19/zalen-inf-2e-jaar-voorjaar-18-19.xls \
+		| ~/studie/utils/parserooster/index.js 'Rooster Informatica 2e jaar voorjaar' >$file
 	khal import --batch $file
 
 	# Let's leave sudo behind nicely.
