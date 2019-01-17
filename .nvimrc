@@ -41,26 +41,13 @@ function! Multiple_cursors_after()
 	let g:ycm_filetype_whitelist = s:old_ycm_whitelist
 endfunction
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:snips_author = "Lieuwe Rooijakkers"
-
 " AutoPairs
 let g:AutoPairsCenterLine = 0
-
-" OmniSharp
-let g:OmniSharp_server_type = 'v1'
-let g:OmniSharp_server_type = 'roslyn'
-
-" Tern
-let g:tern_map_keys=1
-let g:tern_show_argument_hints='on_hold'
 
 " MatchTagAlways
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
 
 " ALE
-let g:ale_completion_enabled = 1
 let g:ale_sign_error = 'E>'
 let g:ale_sign_warning = 'W>'
 
@@ -107,13 +94,10 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 
 " Filetype specific utils
-"Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' }
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'sh', 'vim'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-" Plug 'marijnh/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install && curl --create-dirs -o ./node_modules/tern/plugin/meteor.js https://raw.githubusercontent.com/Slava/tern-meteor/master/meteor.js && cd ./node_modules/tern/ && npm install --save tern-node-express' }
 Plug 'maksimr/vim-jsbeautify', { 'for': [ 'javascript', 'javascript.jsx', 'jsx', 'json', 'html', 'css'] }
-" Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'mustache', 'javascript.jsx'] }
 Plug 'ap/vim-css-color', { 'for': ['css', 'html', 'stylus'] }
 Plug 'Valloric/MatchTagAlways'
 
@@ -143,8 +127,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'w0rp/ale'
 
 " Autocomplete
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --ts-completer' }
 
 " Motions, operators and objects
 Plug 'tommcdo/vim-exchange'
@@ -158,10 +141,6 @@ Plug 'tpope/vim-unimpaired'
 " FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-
-" Snippets
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
 
 " The rest
 Plug 'easymotion/vim-easymotion'
@@ -252,7 +231,7 @@ iabbrev /shrug/ ¯\_(ツ)_/¯
 " File specific settings.
 autocmd FileType html,mustache setlocal formatoptions-=t
 
-set spelllang=en_us,nl
+set spelllang=en_gb,nl
 autocmd FileType markdown,html,mustache,gitcommit setlocal spell " Set spellchecking on for text files.
 autocmd BufRead,BufNewFile *.html setlocal wrap " Wrap HTML files.
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " CoffeeScript folding.

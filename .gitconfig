@@ -34,6 +34,7 @@
 [core]
 	# pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 	pager = diff-highlight | less --tabs=1,5 -R
+	excludesfile = /Users/lieuwe/.gitignore_global
 [interactive]
 	diffFilter = diff-highlight
 [grep]
@@ -45,7 +46,7 @@
 	up = pull --rebase --autostash
 	conflicts = diff --name-only --diff-filter=U
 [filter "lfs"]
+	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process

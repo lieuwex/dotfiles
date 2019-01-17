@@ -1,9 +1,7 @@
-set NPM_PACKAGES ~/.npm-packages
-set NODE_PATH $NPM_PACKAGES/lib/node_modules $NODE_PATH
 set -x GOPATH ~/go/
 set MANPATH
-set MANPATH $NPM_PACKAGES/share/man /usr/local/opt/coreutils/libexec/gnuman (manpath)
-set PATH $GOPATH/bin $NPM_PACKAGES/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin ~/bin $PATH
+set MANPATH /usr/local/opt/coreutils/libexec/gnuman (manpath)
+set PATH $HOME/.cargo/bin $HOME/bin $GOPATH/bin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/bin /usr/local/sbin $PATH
 
 set -x EDITOR nvim
 set -x PAGER less
@@ -19,15 +17,18 @@ alias cd.. 'cd ..'
 alias diff 'git diff'
 alias ms 'meteor shell'
 alias mm 'meteor mongo'
-alias remake 'make remake'
 alias less 'less -iR'
 alias cdd 'cd ~/Downloads'
 alias js 'n_'
 alias gdb 'gdb -q'
-alias make 'make -j4'
+alias make 'make -j6'
 
 # set tabwidth to 4
 tabs -4
+
+function remake
+	make clean; and make
+end
 
 function cdm
 	if test -z "$argv"
@@ -56,7 +57,7 @@ function silent # Silently executes a function
 end
 
 function ip # Prints current IP using httpbin.
-	curl -s "icanhazip.com"
+	curl -s "https://httpbin.org/ip" | jq -r '.origin'
 end
 
 function updateall

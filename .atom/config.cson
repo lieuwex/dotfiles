@@ -23,9 +23,10 @@
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
-    showInvisibles: true
+    showInvisibles: false
     softTabs: false
     tabLength: 4
+    tabType: "hard"
   "exception-reporting":
     userId: "9cde2665-488e-0b94-858e-3a3318a89833"
   "highlight-line":
