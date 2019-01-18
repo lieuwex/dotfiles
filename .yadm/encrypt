@@ -4,3 +4,4 @@
 .weechat/jabber.conf
 .weechat/relay.conf
 .weechat/ssl/
+.netrc
