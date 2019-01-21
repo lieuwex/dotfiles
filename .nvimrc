@@ -210,6 +210,7 @@ set wildmenu " Autocompletion menu on ex commands.
 set history=1000
 set undolevels=1000
 set gdefault " Use global flag for substitute by default
+set inccommand=nosplit
 
 " Hybrid line numbering.
 set relativenumber
