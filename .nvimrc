@@ -148,7 +148,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-rsi'
 Plug 'bogado/file-line'
 Plug 'metakirby5/codi.vim'
@@ -216,9 +215,6 @@ set gdefault " Use global flag for substitute by default
 set relativenumber
 set number
 
-" Set incsearch
-map /  <Plug>(incsearch-forward)\v
-map ?  <Plug>(incsearch-backward)\v
 map g/ <Plug>(easymotion-sn)\v
 
 " Typos
