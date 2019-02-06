@@ -118,7 +118,7 @@ Plug 'tyru/open-browser-github.vim', { 'on': 'OpenGithubIssue' }
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'simnalamburt/vim-mundo', { 'on': ['MundoToggle', 'MundoShow'] }
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'commit': 'faa1e953deae2da2b0df45f71a8ce8d931766c28' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/rainbow_parentheses.vim'
