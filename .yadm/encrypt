@@ -5,3 +5,4 @@
 .weechat/relay.conf
 .weechat/ssl/
 .netrc
+.config/mopidy/mopidy.conf
