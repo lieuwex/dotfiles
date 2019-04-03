@@ -1,52 +1,41 @@
+[core]
+	pager = diff-highlight | less --tabs=4
+	excludesfile = ~/.gitignore_global
+
 [user]
 	name = Lieuwe Rooijakkers
 	email = lieuwerooijakkers@gmail.com
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+[github]
+	user = lieuwex
+
+[alias]
+	up = pull --rebase --autostash
+	conflicts = diff --name-only --diff-filter=U
+
+[fetch]
+	prune = true
 [push]
 	default = simple
-[credential]
-	helper = osxkeychain
+
 [diff]
 	algorithm = minimal
 [merge]
 	conflictstyle = diff3
-	tool = fugitive
-[mergetool "fugitive"]
-	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
-[git-up "fetch"]
-	all = true
-[git-up "rebase"]
-	arguments = --preserve-merges
-[fetch]
-	prune = true
-[format]
-	pretty = fuller
 [rebase]
 	stat = true
-[github]
-	user = lieuwex
+
+[format]
+	pretty = fuller
+[interactive]
+	diffFilter = diff-highlight
+
 [rerere]
 	enabled = true
 	autoupdate = true
-[core]
-	# pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
-	pager = diff-highlight | less --tabs=1,5 -R
-	excludesfile = /Users/lieuwe/.gitignore_global
-[interactive]
-	diffFilter = diff-highlight
+
 [grep]
 	patternType = perl
 	fallbackToNoIndex = true
+
 [tag]
 	sort = v:refname
-[alias]
-	up = pull --rebase --autostash
-	conflicts = diff --name-only --diff-filter=U
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
