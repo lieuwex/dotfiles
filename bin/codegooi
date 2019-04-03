@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
-gooi -n "$1.html" -t -c /dev/stdin <<EOF
+n_files=$#
+file_names="$(echo "$@" | sed -e 's/ /, /g')"
+
+title=$file_names
+if [[ $n_files -gt 1 ]]; then
+	title="$n_files-files"
+fi
+
+gooi -n "$title.html" -t -c /dev/stdin <<EOF
 <!doctype html>
 <head>
-<title>$1</title>
+<title>$file_names</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .linenos {
@@ -15,9 +23,30 @@ gooi -n "$1.html" -t -c /dev/stdin <<EOF
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	margin-top: 3.5em;
 }
 .code {
 	padding-left: 15px;
+	width: 100%;
+}
+
+.filename {
+	width: 100%;
+	display: block;
+	user-select: none;
+	font-size: 140%;
+	font-family: sans-serif;
+	border-bottom: 1px #4e4e4e solid;
+	padding-bottom: 5px;
+}
+
+table.highlighttable:not(:last-child) {
+	margin-bottom: 50px;
+}
+
+span:target {
+	background-color: rgba(255, 255, 0, .1);
+	display: block;
 }
 
 body  { background: #202020; color: #d0d0d0 }
@@ -102,6 +131,10 @@ body  { background: #202020; color: #d0d0d0 }
 </style>
 </head>
 <body>
-$(pygmentize -O linenos=1 -f html $1)
+$(
+	for f in "$@"; do
+		pygmentize -O linenos=table,filename=$f,linespans=$f -f html $f
+	done
+)
 </body>
 EOF
