@@ -1,0 +1,14 @@
+---
+BasedOnStyle: LLVM
+IndentWidth:     4
+TabWidth:        4
+---
+Language:        Cpp
+AlignAfterOpenBracket: AlwaysBreak
+AlignEscapedNewlines: Left
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortCaseLabelsOnASingleLine: true
+#BreakConstructorInitializers: AfterColon
+BreakBeforeBinaryOperators: NonAssignment
+SpaceBeforeCpp11BracedList: true
+UseTab: Always
