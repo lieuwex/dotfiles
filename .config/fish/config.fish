@@ -60,51 +60,6 @@ function ip # Prints current IP using httpbin.
 	curl -s "https://httpbin.org/ip" | jq -r '.origin'
 end
 
-function updateall
-	# Stuff using sudo
-	sudo -v
-	echo "😗 🎶"
-	sudo softwareupdate -i -a
-	#nvidia-update
-	sudo gem update --system
-	sudo gem update
-	sudo gem cleanup
-	yes | brew cu -af
-	~/.tmux/plugins/tpm/bin/update_plugins all
-
-	npm update -g
-
-	brew update
-	brew upgrade
-	brew cleanup -s
-	brew bundle dump -f --file=~/Brewfile
-
-	for pip in pip2 pip3
-		for package in (eval $pip list -o | awk '{print $1}')
-			eval $pip install --upgrade $package
-		end
-	end
-
-	nvim +"PlugUpgrade | PlugClean! | PlugInstall | PlugUpdate | qa"
-
-	fish_update_completions
-
-	# This should actually be done somewhere else
-	rm -rf ~/.local/share/khal
-	set -l file $TMPDIR/(date +%s).ics
-
-	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/18-19/zalen-inf-2e-jaar-najaar-18-19.xls \
-		| ~/studie/utils/parserooster/index.js 'Rooster Informatica 2e jaar najaar' >$file
-	khal import --batch $file
-
-	curl -Ls https://www.student.universiteitleiden.nl/binaries/content/assets/science/liacs/roosters/18-19/zalen-inf-2e-jaar-voorjaar-18-19.xls \
-		| ~/studie/utils/parserooster/index.js 'Rooster Informatica 2e jaar voorjaar' >$file
-	khal import --batch $file
-
-	# Let's leave sudo behind nicely.
-	sudo -k
-end
-
 function vakantie
 	if test "$argv"
 		curl -s "http://vakantie.lieuwe.xyz/$argv" | jq -r ".friendly"
