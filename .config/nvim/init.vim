@@ -20,27 +20,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_json_frontmatter = 1
 
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-let g:ycm_extra_conf_vim_data   = ['&filetype']
-
-let g:ycm_complete_in_comments = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_always_populate_location_list = 1
-let g:ycm_confirm_extra_conf = 0
-
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
-
-function! Multiple_cursors_before()
-	let s:old_ycm_whitelist = g:ycm_filetype_whitelist
-	let g:ycm_filetype_whitelist = {}
-endfunction
-
-function! Multiple_cursors_after()
-	let g:ycm_filetype_whitelist = s:old_ycm_whitelist
-endfunction
-
 " AutoPairs
 let g:AutoPairsCenterLine = 0
 
@@ -62,6 +41,56 @@ let g:elm_format_autosave = 0
 
 " rainbow_pairs
 let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+
+"let g:LanguageClient_serverCommands = {
+"    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+"    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+"    \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
+"    \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+"    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"	\
+"    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"    \ 'python': ['/usr/local/bin/pyls'],
+"    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+"    \ }
+"let g:LanguageClient_loadSettings = 1
+"let g:LanguageClient_settingsPath = '/home/lieuwe/.config/nvim/settings.json'
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"set completeopt=noinsert,menuone,noselect
+"set shortmess+=c
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+set shortmess+=c
+set signcolumn=yes
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <leader>r <Plug>(coc-rename)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -127,7 +156,12 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'w0rp/ale'
 
 " Autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --ts-completer' }
+"Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+"Plug 'ncm2/ncm2'
+"Plug 'ncm2/ncm2-bufword'
+"Plug 'ncm2/ncm2-path'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Motions, operators and objects
 Plug 'tommcdo/vim-exchange'
@@ -270,10 +304,6 @@ vnoremap <silent> <Leader>s :call ResizeToSelection() \| wincmd p<Cr>
 nnoremap <Leader>y mY^y$`Y
 nnoremap <Leader>v ^vg_
 nnoremap Y y$
-
-" ycm mappings
-nnoremap <Leader>d :YcmCompleter GoTo<Cr>
-nnoremap <Leader>c :YcmCompleter FixIt<Cr>
 
 " move mappings
 nnoremap <BS> <C-o>
