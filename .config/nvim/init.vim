@@ -11,15 +11,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 set mouse=a
 
-" Go
-let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
-
-" Markdown
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_json_frontmatter = 1
-
 " AutoPairs
 let g:AutoPairsCenterLine = 0
 
@@ -27,17 +18,11 @@ let g:AutoPairsCenterLine = 0
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'mustache' : 1 }
 
 " ALE
-let g:ale_sign_error = 'E>'
-let g:ale_sign_warning = 'W>'
-
-" incsearch
-let g:incsearch#emacs_like_keymap = 1
+"let g:ale_sign_error = 'E>'
+"let g:ale_sign_warning = 'W>'
 
 " unimpaired
 let g:nremap = { ']t': '', '[t': '' }
-
-" elm
-let g:elm_format_autosave = 0
 
 " rainbow_pairs
 let g:rainbow#pairs = [['(', ')'], ['[', ']']]
@@ -97,6 +82,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Deps
 Plug 'mattn/webapi-vim'
 Plug 'tyru/open-browser.vim'
+Plug 'roxma/nvim-yarp'
 
 " Filetypes
 Plug 'othree/yajs.vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'coffeescript'] }
@@ -153,7 +139,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/rainbow_parentheses.vim'
 
 " Linting
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 
 " Autocomplete
 "Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
@@ -225,9 +211,7 @@ set listchars+=precedes:<
 highlight SpecialKey ctermfg=237
 
 " Remember last line location.
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Options
 set hidden " Hidden buffers swag.
@@ -237,7 +221,7 @@ set nowrap
 set clipboard=unnamed " Use system clipboard for yanking.
 set cursorline " Highlight the current line.
 set scrolljump=5 " Jump some lines when scrolling the window down.
-set incsearch " When searched, use current search query as a query for a substitute.
+set incsearch
 set hlsearch
 set splitright " Split to the right side when using vsplit.
 set wildmenu " Autocompletion menu on ex commands.
@@ -261,13 +245,14 @@ iabbrev /shrug/ ¯\_(ツ)_/¯
 
 " File specific settings.
 autocmd FileType html,mustache setlocal formatoptions-=t
-
-set spelllang=en_gb,nl
-autocmd FileType markdown,html,mustache,gitcommit setlocal spell " Set spellchecking on for text files.
 autocmd BufRead,BufNewFile *.html setlocal wrap " Wrap HTML files.
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable " CoffeeScript folding.
 autocmd FileType css,stylus set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown,mustache setlocal omnifunc=htmlcomplete#CompleteTags
+
+" Spelling
+set spelllang=en_gb,nl
+autocmd FileType markdown,html,mustache,gitcommit setlocal spell " Set spellchecking on for text files.
 
 " Make < > shifts keep selection.
 vnoremap < <gv
@@ -308,36 +293,11 @@ nnoremap Y y$
 " move mappings
 nnoremap <BS> <C-o>
 
-" save (and quit) mappings
-nnoremap <Space>w :up<Cr>
-nnoremap <Space>wa :wa<Cr>
-nnoremap <Space>wq ZZ
-nnoremap <Space>wqa :wqa<Cr>
-
-" quit mappings
-nnoremap <Space>q :q<Cr>
-nnoremap <Space>qq :q!<Cr>
-nnoremap <Space>qa :qa<Cr>
-nnoremap <Space>qaa :qa!<Cr>
-
-" replace mappings
-noremap <Space>sa :%s/\v
-noremap <Space>ss :.s/\v
-noremap <Space>sa/ :%s//
-noremap <Space>ss/ :.s//
-
 " yank mappings
-nnoremap <Space>ya :%y<Cr>
+nnoremap <Leader>ya :%y<Cr>
 
 " :setf mappings
 nnoremap <Leader>sf :setf 
-nnoremap <Leader>sfmu :setf mustache<cr>
-nnoremap <Leader>sfjs :setf javascript<cr>
-nnoremap <Leader>sfjson :setf json<cr>
-
-" devdocs mappings
-nmap K <Plug>(devdocs-under-cursor)
-nnoremap <Leader>p :DevDocs 
 
 " map return to :
 function! MapReturn()
@@ -360,7 +320,6 @@ xnoremap Q ~
 nnoremap ~ Q
 
 " Commands
-command UglifyJS silent write !buble | uglifyjs | pbcopy
 command Path echo expand('%:p')
 command Sudowrite write !sudo tee > /dev/null %
 command Time exec 'norm a' . system('date +%H:%M')
@@ -413,6 +372,7 @@ function! LightlineFilename()
 	return expand('%') !=# '' ? expand('%') : '[No Name]'
 endfunction
 
-" buftabline stuff
 set noshowmode
+
+" buftabline stuff
 set showtabline=2
