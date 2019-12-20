@@ -7,6 +7,7 @@ set -x EDITOR nvim
 set -x PAGER less
 set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
+set -x BROWSER google-chrome
 
 alias vim nvim
 alias view 'nvim -R'
@@ -21,7 +22,7 @@ alias less 'less -iR'
 alias cdd 'cd ~/Downloads'
 alias js 'n_'
 alias gdb 'gdb -q'
-alias make 'make -j6'
+alias make 'make -j8'
 
 # set tabwidth to 4
 tabs -4
@@ -30,12 +31,8 @@ function silent # Silently executes a function
 	eval $argv > /dev/null 2>&1
 end
 
-function ip # Prints current IP using httpbin.
-	curl -s "https://httpbin.org/ip" | jq -r '.origin'
-end
-
 function weather
-	curl wttr.in/wassenaar
+	curl wttr.in/leiden
 end
 
 function lopen
