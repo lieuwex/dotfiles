@@ -14,18 +14,22 @@
 
 [fetch]
 	prune = true
+
 [push]
 	default = simple
 
 [diff]
 	algorithm = minimal
+
 [merge]
 	conflictstyle = diff3
+
 [rebase]
 	stat = true
 
 [format]
 	pretty = fuller
+
 [interactive]
 	diffFilter = diff-highlight
 
